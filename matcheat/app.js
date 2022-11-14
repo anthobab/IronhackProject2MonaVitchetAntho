@@ -35,6 +35,15 @@ app.use("/", signup);
 const login = require("./routes/login");
 app.use("/", login);
 
+const match = require("./routes/match");
+app.use("/", match);
+
+const allMatchs = require("./routes/allMatchs");
+app.use("/", allMatchs);
+
+const about = require("./routes/about");
+app.use("/", about);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
