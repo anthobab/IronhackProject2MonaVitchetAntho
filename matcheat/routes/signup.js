@@ -7,17 +7,17 @@ const { isLoggedIn, isLoggedOut } = require("../middlewares/auth.js");
 ///////////////////////////////////
 // TO ACCESS PAGE SIGN UP //
 
-router.get("/signup", (req, res) => {
-  res.render("signup");
+router.get("/auth/signup", (req, res) => {
+  res.render("auth/signup");
 });
 
 // ROUTE SIGN UP //
 
 router.post("/signup", async (req, res) => {
   const {
-    password,
     username,
     email,
+    password,
     lastName,
     firstName,
     prefix,
@@ -25,6 +25,7 @@ router.post("/signup", async (req, res) => {
     city,
     postcode,
     age,
+    street,
   } = req.body;
   try {
     //PASSWORD
@@ -45,7 +46,7 @@ router.post("/signup", async (req, res) => {
         username: username,
         firstName: firstName,
         lastName: lastName,
-        location: { city, postcode },
+        address: { city, postcode, street },
         phone: { prefix, number },
         age: age,
         email: email,
@@ -53,7 +54,7 @@ router.post("/signup", async (req, res) => {
         salt: salt,
       });
       await newUser.save();
-      res.render("/user-profile");
+      res.render("/");
     }
   } catch (error) {
     res.status(400).json({ error: error.message });

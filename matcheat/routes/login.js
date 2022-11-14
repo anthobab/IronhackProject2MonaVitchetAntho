@@ -6,8 +6,8 @@ const encBase64 = require("crypto-js/enc-base64");
 ///////////////////////////////////
 // TO ACCESS PAGE LOG IN //
 
-router.get("/login", (req, res) => {
-  res.render("login");
+router.get("/auth/login", (req, res) => {
+  res.render("auth/login");
 });
 
 // ROUTE LOG IN //
@@ -20,14 +20,16 @@ router.post("/login", async (req, res) => {
     const userUsername = await User.findOne({ username });
     const newHash = SHA256(password + user.salt).toString(encBase64);
     if (!user || !userUsername) {
-      res.render("/login", {
+      res.render("/auth/login", {
         errorMessage: "L'email n'existe pas",
       });
     } else if (newHash !== user.hash) {
-      res.render("login", { errorMessage: "Le mots de passe est invalide" });
+      res.render("/auth/login", {
+        errorMessage: "Le mots de passe est invalide",
+      });
     } else {
       req.session.currentUser = user;
-      res.render("/user-profile", { user });
+      res.render("/", { user });
     }
   } catch (error) {
     res.status(400).json({ error: error.message });

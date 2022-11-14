@@ -29,10 +29,8 @@ const userSchema = new Schema(
         "not a valid email address",
       ], //validation email : https://regex101.com/r/vznY0l/1
     },
-    password: {
-      type: String,
-      required: true,
-    },
+    hash: String,
+    salt: String,
     address: {
       street: String,
       city: { type: String, max: 100 },
