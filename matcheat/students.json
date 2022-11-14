@@ -39,19 +39,6 @@
     "status": "student"
   },
   {
-    "name": "Chamseddine",
-    "fullname": "Chamseddine El Mohsni",
-    "morningSunshine": {
-      "date": "2022-11-04T00:00:00.000Z"
-    },
-    "github": {
-      "username": "",
-      "link": ""
-    },
-    "projects": [],
-    "status": "student"
-  },
-  {
     "name": "Leo",
     "fullname": "Leo Genuit",
     "morningSunshine": {
@@ -130,19 +117,6 @@
     "status": "student"
   },
   {
-    "name": "Killian",
-    "fullname": "Killian Ake",
-    "morningSunshine": {
-      "date": ""
-    },
-    "github": {
-      "username": "",
-      "link": ""
-    },
-    "projects": [],
-    "status": "deferred"
-  },
-  {
     "name": "Lucile",
     "fullname": "Lucile Tronczyk",
     "morningSunshine": {
@@ -175,7 +149,7 @@
       "date": "2022-10-13T00:00:00.000Z"
     },
     "github": {
-      "username": "",
+      "username": "oletheblonde",
       "link": ""
     },
     "projects": [],
