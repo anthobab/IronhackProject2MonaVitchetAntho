@@ -14,22 +14,24 @@ router.get("/auth/login", (req, res) => {
 
 router.post("/login", async (req, res) => {
   console.log("SESSION =====> ", req.session);
-  const { password, email, username } = req.body;
+  const { password, usernameOrEmail } = req.body;
   try {
-    const user = await User.findOne({ email });
-    const userUsername = await User.findOne({ username });
+    const user =
+      (await User.findOne({ email: usernameOrEmail })) ||
+      (await User.findOne({ username: usernameOrEmail }));
+    console.log(user, "test");
     const newHash = SHA256(password + user.salt).toString(encBase64);
-    if (!user || !userUsername) {
+    if (!user) {
       res.render("/auth/login", {
         errorMessage: "L'email n'existe pas",
       });
     } else if (newHash !== user.hash) {
-      res.render("/auth/login", {
+      res.render("auth/login", {
         errorMessage: "Le mots de passe est invalide",
       });
     } else {
       req.session.currentUser = user;
-      res.render("/", { user });
+      res.render("auth/login", { user });
     }
   } catch (error) {
     res.status(400).json({ error: error.message });
