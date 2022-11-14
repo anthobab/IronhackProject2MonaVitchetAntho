@@ -22,7 +22,7 @@ router.post("/login", async (req, res) => {
     console.log(user, "test");
     const newHash = SHA256(password + user.salt).toString(encBase64);
     if (!user) {
-      res.render("/auth/login", {
+      res.render("auth/login", {
         errorMessage: "L'email n'existe pas",
       });
     } else if (newHash !== user.hash) {
@@ -31,7 +31,7 @@ router.post("/login", async (req, res) => {
       });
     } else {
       req.session.currentUser = user;
-      res.render("auth/login", { user });
+      res.render("index", { user });
     }
   } catch (error) {
     res.status(400).json({ error: error.message });

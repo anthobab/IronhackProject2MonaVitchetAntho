@@ -4,6 +4,7 @@ const SHA256 = require("crypto-js/sha256");
 const encBase64 = require("crypto-js/enc-base64");
 const uid2 = require("uid2");
 const { isLoggedIn, isLoggedOut } = require("../middlewares/auth.js");
+
 ///////////////////////////////////
 // TO ACCESS PAGE SIGN UP //
 
@@ -38,9 +39,13 @@ router.post("/signup", async (req, res) => {
     const emailExist = await User.findOne({ email });
     const usernameExist = await User.findOne({ username });
     if (emailExist) {
-      res.status(400).json({ message: "Le mail est déjà utilisé" });
+      res.render("auth/signup", {
+        errorMessage: "L'email n'existe pas",
+      });
     } else if (usernameExist) {
-      res.status(400).json({ message: "Le pseudo est déjà utilisé" });
+      res.render("auth/signup", {
+        errorMessage: "Le pseudo est déjà utilisé",
+      });
     } else {
       const newUser = new User({
         username: username,
@@ -54,7 +59,7 @@ router.post("/signup", async (req, res) => {
         salt: salt,
       });
       await newUser.save();
-      res.render("/");
+      res.render("index");
     }
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -63,7 +68,7 @@ router.post("/signup", async (req, res) => {
 
 router.get("/logout", async (req, res) => {
   await req.session.destroy();
-  res.redirect("/");
+  res.redirect("index");
 });
 
 module.exports = router;
