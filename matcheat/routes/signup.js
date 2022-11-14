@@ -14,8 +14,18 @@ router.get("/signup", (req, res) => {
 // ROUTE SIGN UP //
 
 router.post("/signup", async (req, res) => {
-  const { password, username, email, lastName, firstName, phone, location } =
-    req.body;
+  const {
+    password,
+    username,
+    email,
+    lastName,
+    firstName,
+    prefix,
+    number,
+    city,
+    postcode,
+    age,
+  } = req.body;
   try {
     //PASSWORD
 
@@ -32,7 +42,12 @@ router.post("/signup", async (req, res) => {
       res.status(400).json({ message: "Le pseudo est déjà utilisé" });
     } else {
       const newUser = new User({
-        account: { username },
+        username: username,
+        firstName: firstName,
+        lastName: lastName,
+        location: { city, postcode },
+        phone: { prefix, number },
+        age: age,
         email: email,
         hash: hash,
         salt: salt,
