@@ -1,0 +1,48 @@
+const router = require("express").Router();
+const User = require("../models/User.model");
+const SHA256 = require("crypto-js/sha256");
+const encBase64 = require("crypto-js/enc-base64");
+const uid2 = require("uid2");
+
+///////////////////////////////////
+// TO ACCESS PAGE SIGN UP //
+
+router.get("/signup", (req, res) => {
+  res.render("signup");
+});
+
+// ROUTE SIGN UP //
+
+router.post("/signup", async (req, res) => {
+  const { password, username, email, lastName, firstName, phone, location } =
+    req.body;
+  try {
+    //PASSWORD
+
+    const salt = uid2(16);
+
+    const hash = SHA256(password + salt).toString(encBase64);
+
+    //
+    const emailExist = await User.findOne({ email });
+    const usernameExist = await User.findOne({ username });
+    if (emailExist) {
+      res.status(400).json({ message: "Le mail est déjà utilisé" });
+    } else if (usernameExist) {
+      res.status(400).json({ message: "Le pseudo est déjà utilisé" });
+    } else {
+      const newUser = new User({
+        account: { username },
+        email: email,
+        hash: hash,
+        salt: salt,
+      });
+      await newUser.save();
+      res.render("/user-profile");
+    }
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+module.exports = router;
