@@ -8,10 +8,10 @@ const userSchema = new Schema(
       trim: true,
       required: true,
       unique: true,
+      validate: [/[^@]/, "@ not allowed on username"],
     },
     firstName: {
       type: String,
-      trim: true,
       max: 50,
     },
     lastName: {
@@ -24,10 +24,28 @@ const userSchema = new Schema(
       unique: true,
       lowercase: true,
       trim: true,
+      validate: [
+        /(\w+\.?|-?\w+?)+@\w+\.?-?\w+?(\.\w{2,3})+/,
+        "not a valid email address",
+      ], //validation email : https://regex101.com/r/vznY0l/1
     },
-    password: {
-      type: String,
-      required: true,
+    hash: String,
+    salt: String,
+    address: {
+      street: String,
+      city: { type: String, max: 100 },
+      postcode: { type: Number, length: 5 },
+    },
+    phone: {
+      prefix: { type: Number, max: 3 },
+      number: { type: Number, max: 10 },
+    },
+    age: {
+      type: Number,
+    },
+    image: {
+      type: Schema.Types.ObjectId,
+      ref: "FileModel",
     },
   },
   {

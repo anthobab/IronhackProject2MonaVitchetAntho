@@ -1,0 +1,20 @@
+<form action="/login" method="POST">
+  <div>
+    <label for="usernameOrEmail">Username or Email: </label>
+    <input
+      type="text"
+      id="usernameOrEmail"
+      name="usernameOrEmail"
+      placeholder="username or email"
+    />
+  </div>
+
+  <div>
+    <label for="password">Password: </label>
+    <input type="text" id="password" name="password" placeholder="password" />
+  </div>
+  <button>Login</button>
+
+  <p>No account yet? <a href="/auth/signin">Signin</a></p>
+
+</form>
