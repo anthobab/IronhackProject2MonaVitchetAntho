@@ -1,23 +1,23 @@
-<form
-  method="post"
-  action="/user/{{User._id}}/update"
-  enctype="multipart/form-data"
->
+
+<form method="post" action="/profile" enctype="multipart/form-data">
   <input type="file" name="picture" />
   <button>Upload</button>
 </form>
 
-<form action="/user/{{User._id}}/update" method="POST">
+<form action="/profile" method="GET">
+  {{userSession}}
+  <input
+    type="text"
+    name="username"
+    placeholder="{{this.userSession.username}}"
+  />
 
-  <input type="text" name="username" placeholder="{{this.username}}" />
-
-  <input type="text" name="firstName" placeholder="{{this.firstName}}" />
-  <input type="text" name="secondName" placeholder="{{this.secondName}}" />
+  <input
+    type="text"
+    name="firstName"
+    placeholder="{{this.userSession.email}}"
+  />
 
   <input type="number" name="age" placeholder="{{this.age}}" />
-
-  <input type="email" name="email" placeholder="{{this.email}}" />
-
-  {{!-- <input type="text" name="location" placeholder="{{this.location}}" /> --}}
 
 </form>

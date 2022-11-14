@@ -44,6 +44,9 @@ app.use("/", allMatchs);
 const about = require("./routes/about");
 app.use("/", about);
 
+const profile = require("./routes/profile");
+app.use("/", profile);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
