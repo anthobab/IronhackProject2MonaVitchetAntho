@@ -1,0 +1,22 @@
+<form method="post" action="/profile" enctype="multipart/form-data">
+  <input type="file" name="picture" />
+  <button>Upload</button>
+</form>
+
+<form action="/profile" method="GET">
+  {{userSession}}
+  <input
+    type="text"
+    name="username"
+    placeholder="{{this.userSession.username}}"
+  />
+
+  <input
+    type="text"
+    name="firstName"
+    placeholder="{{this.userSession.email}}"
+  />
+
+  <input type="number" name="age" placeholder="{{this.age}}" />
+
+</form>
