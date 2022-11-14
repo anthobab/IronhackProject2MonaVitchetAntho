@@ -1,9 +1,13 @@
-<form action="/user/{{User._id}}/update" method="POST">
+<form
+  method="post"
+  action="/user/{{User._id}}/update"
+  enctype="multipart/form-data"
+>
+  <input type="file" name="picture" />
+  <button>Upload</button>
+</form>
 
-  <form method="post" action="/something" enctype="multipart/form-data">
-    <input type="file" name="picture" />
-    <button>Upload</button>
-  </form>
+<form action="/user/{{User._id}}/update" method="POST">
 
   <input type="text" name="username" placeholder="{{this.username}}" />
 
@@ -14,6 +18,6 @@
 
   <input type="email" name="email" placeholder="{{this.email}}" />
 
-  <input type="text" name="location" placeholder="{{this.location}}" />
+  {{!-- <input type="text" name="location" placeholder="{{this.location}}" /> --}}
 
 </form>
