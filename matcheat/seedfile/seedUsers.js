@@ -1,7 +1,6 @@
-// const { User, hello } = require("./../models/Rubberduck.model")
-require("./../db/index");
-const User = require("./../models/User.model");
-const users = require("./../students.json");
+require("../db/index");
+const User = require("../models/User.model");
+const users = require("../students.json");
 
 seed();
 
@@ -13,6 +12,7 @@ async function seed() {
     process.exit();
   } catch (error) {
     console.error(error);
+    process.exit();
   }
 }
 
@@ -35,6 +35,7 @@ async function createUsers() {
       // },
     };
   });
+  console.log(formatedUsers.length);
   const allUSers = await User.create(formatedUsers);
   return allUSers.length;
 }
