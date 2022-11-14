@@ -4,19 +4,11 @@
 </form>
 
 <form action="/profile" method="GET">
-  {{userSession}}
-  <input
-    type="text"
-    name="username"
-    placeholder="{{this.userSession.username}}"
-  />
+  {{user}}
+    <input type="text" name="username" placeholder="{{this.user.username}}" />
 
-  <input
-    type="text"
-    name="firstName"
-    placeholder="{{this.userSession.email}}"
-  />
+    <input type="text" name="firstName" placeholder="{{this.user.email}}" />
 
-  <input type="number" name="age" placeholder="{{this.age}}" />
-
+    <input type="number" name="age" placeholder="{{this.age}}" />
+  {{}}
 </form>
