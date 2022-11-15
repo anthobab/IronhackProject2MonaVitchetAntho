@@ -2,11 +2,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 :root {
+<<<<<<< HEAD
   --gold-color: rgb(229, 184, 11); /*Pure Gold   use :  var(--gold-color); */
   --white-color: #ffffff; /*White use: var(--white-color); */
   --orange-color: #ff792e; /*Orange use: var(--orange-color); */
   --orangebtn-color: #f6bd60; /*Orangebtn use: var(--orangebtn-color); */
   --black-color: #191919; /*Black use: var(--black-color); */
+=======
+  --black-color: #463f3a; /* use :  var(--black-color); */
+  --greyhot-color: #8a817c; /* use :  var(--greyhot-color); */
+  --greycold-color: #bcb8b1; /* use :  var(--greycold-color); */
+  --white-color: #f4f3ee; /* use :  var(--white-color); */
+  --yellow-color: #f5cb5c; /* use :  var(--yellow-color); */
+>>>>>>> main
 }
 
 /******************************************General****************************************************************/
@@ -19,7 +27,11 @@
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+<<<<<<< HEAD
   background-color: var(--white-color);
+=======
+  background-color: white;
+>>>>>>> main
 }
 
 a {
@@ -34,14 +46,14 @@ h1 {
 
 nav {
   width: 100%;
-  background-color: var(--orange-color);
+  background-color: var(--yellow-color);
   height: 4rem;
   padding: 0 0.5rem;
-  margin-bottom: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 #homeAndAbout {
   display: flex;
   gap: 1rem;
@@ -95,4 +107,46 @@ nav {
   padding: 2em;
   max-width: 30em;
   text-align: justify;
+}
+
+#nav-all a {
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  overflow: hidden;
+  display: inline-block;
+  color: white;
+  padding: 10px;
+}
+
+#nav-all a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform-origin: bottom right;
+
+  transition: transform 0.25s ease-out;
+}
+
+#nav-all a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/******************************************SIGNUP****************************************************************/
+
+#signup {
+  background-color: var(--yellow-color);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
