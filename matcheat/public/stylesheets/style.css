@@ -2,19 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 :root {
-<<<<<<< HEAD
-  --gold-color: rgb(229, 184, 11); /*Pure Gold   use :  var(--gold-color); */
-  --white-color: #ffffff; /*White use: var(--white-color); */
-  --orange-color: #ff792e; /*Orange use: var(--orange-color); */
-  --orangebtn-color: #f6bd60; /*Orangebtn use: var(--orangebtn-color); */
-  --black-color: #191919; /*Black use: var(--black-color); */
-=======
   --black-color: #463f3a; /* use :  var(--black-color); */
   --greyhot-color: #8a817c; /* use :  var(--greyhot-color); */
   --greycold-color: #bcb8b1; /* use :  var(--greycold-color); */
   --white-color: #f4f3ee; /* use :  var(--white-color); */
   --yellow-color: #f5cb5c; /* use :  var(--yellow-color); */
->>>>>>> main
 }
 
 /******************************************General****************************************************************/
@@ -27,11 +19,7 @@
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-<<<<<<< HEAD
-  background-color: var(--white-color);
-=======
-  background-color: white;
->>>>>>> main
+  background-color: #f4f3ee;
 }
 
 a {
@@ -44,9 +32,11 @@ h1 {
   margin: 0.5em 2em;
 }
 
+/************************************************ NAV ******************************************************/
+
 nav {
   width: 100%;
-  background-color: var(--yellow-color);
+  background-color: #242423;
   height: 4rem;
   padding: 0 0.5rem;
   display: flex;
@@ -54,14 +44,6 @@ nav {
   justify-content: space-between;
 }
 
-#homeAndAbout {
-  display: flex;
-  gap: 1rem;
-  margin-left: 1rem;
-}
-#homeAndAbout a {
-  color: #191919;
-}
 #nav-all ul,
 #nav-all a {
   display: flex;
@@ -69,44 +51,6 @@ nav {
   list-style: none;
   margin-right: 1rem;
   color: #191919;
-}
-
-.index-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: stretch;
-}
-
-#sign-btn,
-#log-btn {
-  padding: 1.3em 10em;
-  margin: 1.2em;
-  background-color: #f6bd60;
-  cursor: pointer;
-  border: none;
-  border-radius: 10px;
-}
-#about-title {
-  color: #191919;
-  padding: 1em 2em;
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-#about-sub {
-  color: #191919;
-  padding: 1em 3em;
-  margin: 1em 5em;
-  background-color: rgba(0, 0, 0, 0.05);
-  text-align: center;
-}
-
-#about-text {
-  font-size: 1.3em;
-  color: #191919;
-  padding: 2em;
-  max-width: 30em;
-  text-align: justify;
 }
 
 #nav-all a {
@@ -138,6 +82,69 @@ nav {
 #nav-all a:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+/************************************************ INDEX ******************************************************/
+
+#home {
+  display: flex;
+  gap: 1rem;
+  margin-left: 1rem;
+}
+#home a {
+  color: white;
+}
+
+.index-btn {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: stretch;
+}
+
+#sign-btn {
+  padding: 1.2em 12em;
+  margin: 1.2em;
+  background-color: var(--yellow-color);
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.8em;
+}
+#log-btn {
+  padding: 1.2em 12em;
+  margin: 1.2em;
+  background-color: #f4f3ee;
+  cursor: pointer;
+  border: solid;
+  border-color: var(--yellow-color);
+  border-radius: 6px;
+  font-size: 1.8em;
+}
+
+/**************************************ABOUT**************************************************/
+
+#about-title {
+  color: #191919;
+  padding: 1em 2em;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+#about-sub {
+  color: #191919;
+  padding: 1em 3em;
+  margin: 1em 5em;
+  background-color: rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+#about-text {
+  font-size: 1.3em;
+  color: #191919;
+  padding: 2em;
+  max-width: 30em;
+  text-align: justify;
 }
 
 /******************************************SIGNUP****************************************************************/
