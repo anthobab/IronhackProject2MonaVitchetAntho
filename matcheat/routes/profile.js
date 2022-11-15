@@ -42,6 +42,7 @@ router.post("/profile", async (req, res) => {
     );
     console.log(userUpdate);
     await userUpdate.save();
+
     res.render("index");
   } catch (error) {
     res.status(400).json({ error: error.message });
