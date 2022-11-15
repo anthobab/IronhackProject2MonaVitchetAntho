@@ -20,13 +20,12 @@ router.post("/profile", async (req, res) => {
     street,
     city,
     postcode,
+    username,
+    email,
     prefix,
     number,
     age,
-    username,
-    email,
   } = req.body;
-  console.log(userSession._id, req.body);
   try {
     const userUpdate = await User.findByIdAndUpdate(
       userSession._id,
@@ -35,17 +34,15 @@ router.post("/profile", async (req, res) => {
         email,
         firstName,
         lastName,
-        street,
-        city,
-        postcode,
-        prefix,
-        number,
+        address: { city, street, postcode },
+        phone: { prefix, number },
         age,
       },
       { new: true }
     );
     console.log(userUpdate);
     await userUpdate.save();
+
     res.render("index");
   } catch (error) {
     res.status(400).json({ error: error.message });
