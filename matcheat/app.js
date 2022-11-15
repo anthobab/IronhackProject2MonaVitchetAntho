@@ -24,6 +24,8 @@ const capitalize = require("./utils/capitalize");
 const projectName = "matcheat";
 
 app.locals.appTitle = `${capitalize(projectName)}`;
+const { exposeUserToView } = require("./middlewares/auth");
+app.use("/", exposeUserToView);
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
@@ -46,6 +48,9 @@ app.use("/", about);
 
 const profile = require("./routes/profile");
 app.use("/", profile);
+
+const matchAxios = require("./routes/matchAxios");
+app.use("/matchAxios", matchAxios);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
