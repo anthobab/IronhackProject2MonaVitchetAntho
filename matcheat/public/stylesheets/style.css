@@ -1,3 +1,14 @@
+/***************************************variables****************************************************************/
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  --gold-color: rgb(229, 184, 11); /*Pure Gold   use :  var(--gold-color); */
+  --peach-color: #ffefe2; /*Peach use: var(--peach-color); */
+  --orange-color: #ff792e; /*Orange use: var(--orange-color); */
+}
+
+/******************************************General****************************************************************/
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,6 +17,7 @@
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: var(--peach-color);
 }
 
 a {
@@ -20,7 +32,7 @@ h1 {
 
 nav {
   width: 100%;
-  background-color: #84a59d;
+  background-color: var(--orange-color);
   height: 4rem;
   padding: 0 0.5rem;
   margin-bottom: 2rem;
@@ -34,7 +46,7 @@ nav {
   margin-left: 1rem;
 }
 #homeAndAbout a {
-  color: #ffe8d6;
+  color: #191919;
 }
 #nav-all ul,
 #nav-all a {
@@ -42,18 +54,18 @@ nav {
   gap: 1rem;
   list-style: none;
   margin-right: 1rem;
-  color: #ffe8d6;
+  color: #191919;
 }
 
-.index-btn {
+.index {
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: stretch;
 }
 
-#sign-btn,
-#log-btn {
+#sign,
+#log {
   padding: 1.3em 10em;
   margin: 1.2em;
   border: none;

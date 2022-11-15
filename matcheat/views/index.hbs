@@ -3,11 +3,15 @@
   <h2>Welcome <span class="username"> @{{currentUser.username}}</span> </h2>
 {{/if}}
 
-<div class="index-btn">
-  <button id="sign-btn">
-    <a href="/auth/signup">Signup</a>
-  </button>
-  <button id="log-btn">
-    <a href="/auth/login">Login</a>
-  </button>
+<div class="index">
+  <div>
+    <form action="/auth/signup">
+      <button type="submit" id="sign">Signup</button>
+    </form>
+  </div>
+  <form action="/auth/login">
+    <button type="submit" id="log">Login</button>
+  </form>
 </div>
+
+<form action=""></form>
