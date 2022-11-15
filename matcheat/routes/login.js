@@ -31,7 +31,7 @@ router.post("/login", async (req, res) => {
       });
     } else {
       req.session.currentUser = user;
-      res.render("index", { user });
+      res.redirect("/");
     }
   } catch (error) {
     res.status(400).json({ error: error.message });
