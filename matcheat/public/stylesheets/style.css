@@ -2,15 +2,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 :root {
-
   --black-color: #242423; /* use :  var(--black-color); */
-
 
   --greyhot-color: #8a817c; /* use :  var(--greyhot-color); */
   --greycold-color: #bcb8b1; /* use :  var(--greycold-color); */
   --white-color: #f4f3ee; /* use :  var(--white-color); */
   --yellow-color: #f5cb5c; /* use :  var(--yellow-color); */
-
 }
 
 /******************************************General****************************************************************/
@@ -22,12 +19,9 @@
 }
 
 body {
-
   font: 14px "Roboto", sans-serif;
 
-
   background-color: var(--white-color);
-
 }
 
 a {
@@ -189,7 +183,7 @@ nav {
 
 .container-signup button {
   width: 30%;
-  height: 40%;
+  height: 10%;
   background-color: var(--yellow-color);
   border: none;
   border-radius: 10px;
