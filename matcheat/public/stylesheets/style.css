@@ -3,8 +3,10 @@
 
 :root {
   --gold-color: rgb(229, 184, 11); /*Pure Gold   use :  var(--gold-color); */
-  --peach-color: #ffefe2; /*Peach use: var(--peach-color); */
+  --white-color: #ffffff; /*White use: var(--white-color); */
   --orange-color: #ff792e; /*Orange use: var(--orange-color); */
+  --orangebtn-color: #f6bd60; /*Orangebtn use: var(--orangebtn-color); */
+  --black-color: #191919; /*Black use: var(--black-color); */
 }
 
 /******************************************General****************************************************************/
@@ -17,7 +19,7 @@
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: var(--peach-color);
+  background-color: var(--white-color);
 }
 
 a {
@@ -57,17 +59,40 @@ nav {
   color: #191919;
 }
 
-.index {
+.index-btn {
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: stretch;
 }
 
-#sign,
-#log {
+#sign-btn,
+#log-btn {
   padding: 1.3em 10em;
   margin: 1.2em;
-  border: none;
   background-color: #f6bd60;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+}
+#about-title {
+  color: #191919;
+  padding: 1em 2em;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+#about-sub {
+  color: #191919;
+  padding: 1em 3em;
+  margin: 1em 5em;
+  background-color: rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+#about-text {
+  font-size: 1.3em;
+  color: #191919;
+  padding: 2em;
+  max-width: 30em;
+  text-align: justify;
 }
