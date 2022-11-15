@@ -29,6 +29,7 @@ async function createUsers() {
       email: el.name + "@ironhack.fr",
       hash: "erjbgvolnrsfd",
       salt: "kjrsbdvkjbnzr",
+      availableDates: [Date(2022, 12, 1)],
       // image: {
       //   type: Schema.Types.ObjectId,
       //   ref: "FileModel",

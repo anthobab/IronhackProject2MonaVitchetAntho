@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 :root {
-  --black-color: #463f3a; /* use :  var(--black-color); */
+  --black-color: #242423; /* use :  var(--black-color); */
   --greyhot-color: #8a817c; /* use :  var(--greyhot-color); */
   --greycold-color: #bcb8b1; /* use :  var(--greycold-color); */
   --white-color: #f4f3ee; /* use :  var(--white-color); */
@@ -18,8 +18,9 @@
 }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #f4f3ee;
+  font: 14px "Roboto", sans-serif;
+
+  background-color: var(--white-color);
 }
 
 a {
@@ -36,7 +37,7 @@ h1 {
 
 nav {
   width: 100%;
-  background-color: #242423;
+  background-color: var(--black-color);
   height: 4rem;
   padding: 0 0.5rem;
   display: flex;
@@ -146,14 +147,130 @@ nav {
   max-width: 30em;
   text-align: justify;
 }
-
 /******************************************SIGNUP****************************************************************/
 
 #signup {
-  background-color: var(--yellow-color);
+  background-color: var(--white-color);
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#signup h2 {
+  color: var(--black-color);
+  font-size: 3em;
+  padding: 20px;
+}
+
+.container-signup {
+  background-color: var(--greycold-color);
+
+  height: 70%;
+  width: 40%;
+  border-radius: 10px;
+  box-shadow: 3px 2px 22px 2px rgba(0, 0, 0, 0.58);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.label {
+  height: 40%;
+  width: 80%;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border-radius: 20px;
+  box-shadow: 2px 22px 2px rgba(0, 0, 0, 0.32);
+}
+
+.label input {
+  height: 100%;
+  width: 100%;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  outline: none;
+}
+
+.container-signup button {
+  width: 30%;
+  height: 10%;
+  background-color: var(--yellow-color);
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.container-signup button:hover {
+  cursor: pointer;
+}
+
+/******************************************LOGIN****************************************************************/
+
+#login {
+  background-color: var(--white-color);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#login h2 {
+  color: var(--black-color);
+  font-size: 3em;
+  padding: 20px;
+}
+
+.container-login {
+  background-color: var(--greycold-color);
+
+  height: 70%;
+  width: 40%;
+  border-radius: 10px;
+  box-shadow: 3px 2px 22px 2px rgba(0, 0, 0, 0.58);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.label {
+  height: 10%;
+  width: 80%;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border-radius: 20px;
+  box-shadow: 2px 22px 2px rgba(0, 0, 0, 0.32);
+}
+
+.label input {
+  height: 100%;
+  width: 100%;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  outline: none;
+}
+
+.container-login button {
+  width: 30%;
+  height: 10%;
+  background-color: var(--yellow-color);
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.container-login button:hover {
+  cursor: pointer;
 }

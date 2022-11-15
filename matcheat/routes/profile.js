@@ -33,10 +33,6 @@ router.post(
     } = req.body;
     console.log(req.file);
     try {
-      await FileModel.create({
-        name: req.file.originalname,
-        URL: req.file.path,
-      });
       const userUpdate = await User.findByIdAndUpdate(
         userSession._id,
         {
@@ -47,10 +43,16 @@ router.post(
           address: { city, street, postcode },
           phone: { prefix, number },
           age,
+          image: {
+            name: req.file.originalname,
+            URL: req.file.path,
+          },
         },
         { new: true }
       );
+
       req.session.currentUser = userUpdate;
+
       await userUpdate.save();
       res.redirect("/");
     } catch (error) {
