@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const User = require("../models/User.model");
-// const FileModel = require("../models/FileModel.model");
 const { exposeUserToView } = require("../middlewares/auth.js");
 const uploader = require("./../config/cloudinary");
 
