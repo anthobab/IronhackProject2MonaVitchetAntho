@@ -4,9 +4,23 @@ const Match = require("../models/Match.model");
 
 /* GET home page */
 
-// router.get("/findUser", (req, res, next) => {
-//   res.render("index");
-// });
+router.get("/findAllUsers", async (req, res, next) => {
+  const filter = {
+    availableDates: {
+      $elemMatch: {
+        $gte: new Date("Tue, 15 Nov 2022 00:00:00 GMT"),
+        $lte: new Date("Wed, 16 Nov 2022 00:00:00 GMT"),
+      },
+    },
+  };
+
+  const limit = 2;
+
+  const users = await User.find(filter, { limit });
+  console.log("begin \n \n", users, "end \n \n end");
+  const userFound = await User.findById(users[0]);
+  res.json({ user: userFound });
+});
 
 // router.get("/image", (req, res, next) => {
 //   res.json({
