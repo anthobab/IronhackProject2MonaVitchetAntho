@@ -1,18 +1,17 @@
-<nav>
-  <div><a href="/">Home</a></div>
-  <ul>
-    <li><a href="/about" id="about">About</a></li>
+<nav class="navBar">
+  <div id="homeAndAbout"><a href="/">Home</a><a href="/about">About</a></div>
+  <div id="nav-all">
+    <ul>
+      {{#if isLoggedIn}}
+        <li><a href="/match">Let's match</a></li>
+        <li><a href="/all-matchs">My matchs</a></li>
+        <li><a href="/profile">My profile</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+      {{else}}
+        <li><a href="/auth/login">Login</a></li>
+        <li><a href="/auth/signup">Sign up</a></li>
+      {{/if}}
+    </ul>
+  </div>
 
-    {{!-- {{#if isLoggedIn}} --}}
-    <li><a href="/match">Let's match</a></li>
-    <li><a href="/all-matchs">My matchs</a></li>
-    <li><a href="/profile">My profil</a></li>
-    <li><a href="/auth/logout">Logout</a></li>
-
-    {{!-- {{else}} --}}
-    <li><a href="/auth/login">Login</a></li>
-    <li><a href="/auth/signup">Sign up</a></li>
-    {{!-- {{/if}} --}}
-
-  </ul>
 </nav>

@@ -1,7 +1,17 @@
 <h1>{{appTitle}}</h1>
 {{#if isLoggedIn}}
   <h2>Welcome <span class="username"> @{{currentUser.username}}</span> </h2>
-{{/if}}
+{{else}}
 
-<p><a href="/auth/signup">Signup</a></p>
-<p><a href="/auth/login">Login</a></p>
+  <div class="index">
+    <div>
+      <form action="/auth/signup">
+        <button type="submit" id="sign">Signup</button>
+      </form>
+    </div>
+    <form action="/auth/login">
+      <button type="submit" id="log">Login</button>
+    </form>
+  </div>
+
+{{/if}}
