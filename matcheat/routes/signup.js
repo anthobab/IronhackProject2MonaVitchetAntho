@@ -60,17 +60,21 @@ router.post("/signup", async (req, res) => {
       });
       await newUser.save();
       res.locals.isLoggedIn = true;
-      res.render("index");
+      res.redirect("auth/login");
     }
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 });
 
-router.get("/logout", async (req, res) => {
-  await req.session.destroy();
+router.get("/auth/logout", async (req, res) => {
+  try {
+    await req.session.destroy();
+  } catch (error) {}
+
   res.locals.isLoggedIn = false;
-  res.redirect("index");
+
+  res.redirect("/");
 });
 
 module.exports = router;

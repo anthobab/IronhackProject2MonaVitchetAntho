@@ -1,5 +1,7 @@
 <h1>{{appTitle}}</h1>
-<p>Welcome ///</p>
+{{#if isLoggedIn}}
+  <h2>Welcome <span class="username"> @{{currentUser.username}}</span> </h2>
+{{/if}}
 
 <p><a href="/auth/signup">Signup</a></p>
 <p><a href="/auth/login">Login</a></p>
