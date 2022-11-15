@@ -12,28 +12,62 @@ const matchPseudo = document.getElementById("matchPseudo");
 const matchFirstName = document.getElementById("matchFirstName");
 const matchLastName = document.getElementById("matchLastName");
 const matchAge = document.getElementById("matchAge");
+const matchDates = document.getElementById("matchDates");
+
+/*Init : list the available users
+for available dates
+which doesn't have match document with my user name*/
 
 /**
  * Event listeners
  */
 
-// nextBtn.addEventListener("submit", handleCreate);
-// matchBtn.addEventListener("submit", handleEdit);
-// fetchPhoneButton.addEventListener("click", fetchPhones);
+nextBtn.addEventListener("submit", handleCreate);
+matchBtn.addEventListener("submit", handleEdit);
+fetchPhoneButton.addEventListener("click", fetchPhones);
 
-// async function handleCreate(event) {
-//   // preventDefault() allow us to not send the information directly to the server
-//   // Instead we will send an AJAX request that will do the job for us :)
-//   event.preventDefault();
+async function listAvailableUsers(event) {
+  // preventDefault() allow us to not send the information directly to the server
+  // Instead we will send an AJAX request that will do the job for us :)
+  if (event === undefined) {
+    event.preventDefault();
+  }
+}
+
+getImageBtn.addEventListener("click", async () => {
+  const { data } = await axios({
+    method: "get",
+    baseURL: "http://localhost:3000/image",
+  });
+
+  console.log(data);
+
+  const img = document.createElement("img");
+  img.src = data.image;
+
+  document.body.append(img);
+});
+
+sayHiBtn.addEventListener("click", async () => {
+  const { data } = await axios({
+    method: "post",
+    baseURL: "http://localhost:3000/message",
+    data: { msg: "hello" },
+  });
+
+  console.log(data);
+});
+
+//   const newlyCreatedPhone = await axios.(
+//     "http://localhost:3000/phone",
+//     phone
+//   );
+
 //   const name = createForm.querySelector("input[name='name']").value;
 //   const price = createForm.querySelector("input[name='price']").value;
 
 //   const phone = { name, price };
 
-//   const newlyCreatedPhone = await axios.post(
-//     "http://localhost:3000/phone",
-//     phone
-//   );
 //   console.log(newlyCreatedPhone);
 //   await fetchPhones();
 // }
