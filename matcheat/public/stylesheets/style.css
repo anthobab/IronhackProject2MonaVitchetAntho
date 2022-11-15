@@ -2,11 +2,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 :root {
+
   --black-color: #242423; /* use :  var(--black-color); */
+
+
   --greyhot-color: #8a817c; /* use :  var(--greyhot-color); */
   --greycold-color: #bcb8b1; /* use :  var(--greycold-color); */
   --white-color: #f4f3ee; /* use :  var(--white-color); */
   --yellow-color: #f5cb5c; /* use :  var(--yellow-color); */
+
 }
 
 /******************************************General****************************************************************/
@@ -18,8 +22,12 @@
 }
 
 body {
+
   font: 14px "Roboto", sans-serif;
-  background-color: white;
+
+
+  background-color: var(--white-color);
+
 }
 
 a {
@@ -59,19 +67,42 @@ nav {
   color: #191919;
 }
 
-.index {
+.index-btn {
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: stretch;
 }
 
-#sign,
-#log {
+#sign-btn,
+#log-btn {
   padding: 1.3em 10em;
   margin: 1.2em;
-  border: none;
   background-color: #f6bd60;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+}
+#about-title {
+  color: #191919;
+  padding: 1em 2em;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+#about-sub {
+  color: #191919;
+  padding: 1em 3em;
+  margin: 1em 5em;
+  background-color: rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+#about-text {
+  font-size: 1.3em;
+  color: #191919;
+  padding: 2em;
+  max-width: 30em;
+  text-align: justify;
 }
 
 #nav-all a {

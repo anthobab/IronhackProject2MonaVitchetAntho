@@ -1,14 +1,24 @@
-<div class="matchCard">
+<div id="matchCard" class="match-card">
 
-  <picture>
-    <img src="{{match.picture}}" alt="{{match.firstName}} picture" />
+  <picture id="matchPic">
+    <img src="" alt="no picture" />
   </picture>
-  <li>
-    {{match.firstName}}
-    {{match.secondName}}
-    {{match.age}}
-    {{match.email}}
-  </li>
+  <ul>
+    <li>
+      pseudo :
+      <span id="matchPseudo"></span>
+    </li>
+    <li>
+      Name :
+      <span id="matchFirstName"></span>
+      <span id="matchLastName"></span>
+    </li>
+    <li>
+      age :
+      <span id="matchAge"></span>
+    </li>
+
+  </ul>
 </div>
 
 {{! <form action="/match" method="POST"> }}

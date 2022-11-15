@@ -44,9 +44,11 @@ const userSchema = new Schema(
       type: Number,
     },
     image: {
-      type: Schema.Types.ObjectId,
-      ref: "FileModel",
+      url: String,
+      name: String,
     },
+
+    availableDates: [Date],
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

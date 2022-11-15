@@ -11,6 +11,10 @@ const matchSchema = new Schema(
     matchee: {
       type: Schema.Types.ObjectId,
       ref: "User",
+      // required: true,
+    },
+    date: {
+      type: Date,
       required: true,
     },
   },
