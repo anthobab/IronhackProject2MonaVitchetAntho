@@ -32,6 +32,7 @@ async function listAvailableUsers(event) {
   if (event === undefined) {
     event.preventDefault();
   }
+  axios.get("/");
 }
 
 getImageBtn.addEventListener("click", async () => {

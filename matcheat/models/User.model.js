@@ -44,8 +44,8 @@ const userSchema = new Schema(
       type: Number,
     },
     image: {
-      url: String,
       name: String,
+      url: String,
     },
 
     availableDates: [Date],
