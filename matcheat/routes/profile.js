@@ -6,7 +6,7 @@ router.get("/profile", async (req, res) => {
   userSession = req.session.currentUser;
   const user = await User.find(userSession);
   console.log(user);
-  res.render("profile", user);
+  res.render("profile", { user });
 });
 
 module.exports = router;
