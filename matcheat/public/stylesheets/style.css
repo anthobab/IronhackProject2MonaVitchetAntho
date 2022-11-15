@@ -3,7 +3,6 @@
 
 :root {
   --black-color: #242423; /* use :  var(--black-color); */
-
   --greyhot-color: #8a817c; /* use :  var(--greyhot-color); */
   --greycold-color: #bcb8b1; /* use :  var(--greycold-color); */
   --white-color: #f4f3ee; /* use :  var(--white-color); */
@@ -34,6 +33,8 @@ h1 {
   margin: 0.5em 2em;
 }
 
+/************************************************ NAV ******************************************************/
+
 nav {
   width: 100%;
   background-color: var(--black-color);
@@ -44,14 +45,6 @@ nav {
   justify-content: space-between;
 }
 
-#homeAndAbout {
-  display: flex;
-  gap: 1rem;
-  margin-left: 1rem;
-}
-#homeAndAbout a {
-  color: #191919;
-}
 #nav-all ul,
 #nav-all a {
   display: flex;
@@ -61,22 +54,78 @@ nav {
   color: #191919;
 }
 
+#nav-all a {
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  overflow: hidden;
+  display: inline-block;
+  color: white;
+  padding: 10px;
+}
+
+#nav-all a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform-origin: bottom right;
+
+  transition: transform 0.25s ease-out;
+}
+
+#nav-all a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/************************************************ INDEX ******************************************************/
+
+#home {
+  display: flex;
+  gap: 1rem;
+  margin-left: 1rem;
+}
+#home a {
+  color: white;
+}
+
 .index-btn {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   align-content: stretch;
 }
 
-#sign-btn,
-#log-btn {
-  padding: 1.3em 10em;
+#sign-btn {
+  padding: 1.2em 12em;
   margin: 1.2em;
-  background-color: #f6bd60;
+  background-color: var(--yellow-color);
   cursor: pointer;
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
+  font-size: 1.8em;
 }
+#log-btn {
+  padding: 1.2em 12em;
+  margin: 1.2em;
+  background-color: #f4f3ee;
+  cursor: pointer;
+  border: solid;
+  border-color: var(--yellow-color);
+  border-radius: 6px;
+  font-size: 1.8em;
+}
+
+/**************************************ABOUT**************************************************/
+
 #about-title {
   color: #191919;
   padding: 1em 2em;
@@ -98,38 +147,6 @@ nav {
   max-width: 30em;
   text-align: justify;
 }
-
-#nav-all a {
-  position: relative;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: 0.5s;
-  letter-spacing: 4px;
-  overflow: hidden;
-  display: inline-block;
-  color: var(--white-color);
-  padding: 10px;
-}
-
-#nav-all a::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--white-color);
-  transform-origin: bottom right;
-
-  transition: transform 0.25s ease-out;
-}
-
-#nav-all a:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
 /******************************************SIGNUP****************************************************************/
 
 #signup {
