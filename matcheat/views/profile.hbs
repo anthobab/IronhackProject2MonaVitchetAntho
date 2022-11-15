@@ -1,15 +1,22 @@
+<form action="/profile" method="POST" enctype="multipart/form-data">
 
-<form method="post" action="/profile" enctype="multipart/form-data">
-  <input type="file" name="picture" />
-  <button>Upload</button>
-</form>
+  <input type="text" name="username" placeholder="{{user.0.username}}" />
 
-<form action="/profile" method="GET">
-  {{user}}
-    <input type="text" name="username" placeholder="{{this.user.username}}" />
+  <input type="text" name="email" placeholder="{{user.0.email}}" />
 
-    <input type="text" name="firstName" placeholder="{{this.user.email}}" />
+  <input type="text" name="firstName" placeholder="First Name" />
 
-    <input type="number" name="age" placeholder="{{this.age}}" />
-  {{}}
+  <input type="text" name="lastName" placeholder="Last Name" />
+
+  <input type="text" name="street" placeholder="Street" />
+
+  <input type="text" name="city" placeholder="City" />
+
+  <input type="text" name="postcode" placeholder="Post Code" />
+
+  <input type="text" name="age" placeholder="Age" />
+
+  <input type="file" name="image" />
+
+  <button>Save</button>
 </form>
