@@ -1,12 +1,61 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00b7ff;
+  text-decoration: none;
 }
 
 h1 {
-  color: 15px;
+  font-size: 4em;
+  text-align: center;
+  margin: 0.5em 2em;
+}
+
+nav {
+  width: 100%;
+  background-color: #84a59d;
+  height: 4rem;
+  padding: 0 0.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#homeAndAbout {
+  display: flex;
+  gap: 1rem;
+  margin-left: 1rem;
+}
+#homeAndAbout a {
+  color: #ffe8d6;
+}
+#nav-all ul,
+#nav-all a {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin-right: 1rem;
+  color: #ffe8d6;
+}
+
+.index-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+}
+
+#sign-btn,
+#log-btn {
+  padding: 1.3em 10em;
+  margin: 1.2em;
+  border: none;
+  background-color: #f6bd60;
 }
