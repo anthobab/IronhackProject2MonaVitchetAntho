@@ -38,6 +38,7 @@ async function listAvailableUsers(event) {
   if (event !== undefined) {
     event.preventDefault();
   }
+  axios.get("/");
 }
 
 nextBtn.addEventListener("click", async () => {

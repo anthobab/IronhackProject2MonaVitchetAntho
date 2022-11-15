@@ -54,7 +54,25 @@
 
   <input type="text" name="age" value="{{user.0.age}}" placeholder="Age" />
 
+<<<<<<< HEAD
+  <input
+    type="file"
+    name="picture"
+    id="picture"
+    accept="image/png, image/jpeg"
+  />
+
+  {{#if user.0.image.url}}
+    <img
+      src="{{user.0.image.url}}"
+      alt="something went wrong... please try to change your profile picture"
+    />
+  {{else}}
+    please load your profile picture
+  {{/if}}
+=======
   <input type="file" name="picture" value="{{user.0.image}}" id="picture" />
+>>>>>>> main
 
   <button>Save</button>
 </form>
