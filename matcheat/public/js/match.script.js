@@ -25,24 +25,31 @@ which doesn't have match document with my user name*/
 async function listAvailableUsers(event) {
   // preventDefault() allow us to not send the information directly to the server
   // Instead we will send an AJAX request that will do the job for us :)
-  const { data } = await axios.get("http://localhost:3000/match/all");
-  data.filter((userMatch) => {
-    matchPic.innerHTML = userMatch.image;
-    matchPseudo.innerHTML = userMatch.username;
-    matchFirstName.innerHTML = userMatch.firstName;
-    matchLastName.innerHTML = userMatch.lastName;
-    matchDates.innerHTML = userMatch.availableDates;
-    matchAge.innerHTML = userMatch.age;
-  });
 
   if (event !== undefined) {
     event.preventDefault();
   }
-  axios.get("/");
+
+  const { data } = await axios.get(
+    "http://localhost:3000/matchAxios/findAllUsers"
+  );
+  console.log(data);
+  return data;
 }
 
 nextBtn.addEventListener("click", async () => {
-  listAvailableUsers();
+  const { user } = await listAvailableUsers();
+
+  const userMatch = user;
+  console.log(userMatch.username, typeof userMatch);
+  if (userMatch) {
+    // matchPic.querySelector("img").src = userMatch.image.url;
+    matchPseudo.textContent = userMatch.username;
+    matchFirstName.textContent = userMatch.firstName;
+    matchLastName.textContent = userMatch.lastName;
+    matchDates.textContent = userMatch.availableDates;
+    matchAge.textContent = userMatch.age;
+  }
 });
 
 //getImageBtn.addEventListener("click", async () => {
