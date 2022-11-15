@@ -25,7 +25,7 @@ which doesn't have match document with my user name*/
 async function listAvailableUsers(event) {
   // preventDefault() allow us to not send the information directly to the server
   // Instead we will send an AJAX request that will do the job for us :)
-  const { data } = await axios.get("http://localhost:3000/match");
+  const { data } = await axios.get("http://localhost:3000/match/all");
   data.filter((userMatch) => {
     matchPic.innerHTML = userMatch.image;
     matchPseudo.innerHTML = userMatch.username;
