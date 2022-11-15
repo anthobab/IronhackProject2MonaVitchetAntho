@@ -5,7 +5,7 @@ const Match = require("../models/Match.model");
 //To access Match page//
 
 router.get("/match", (req, res) => {
-  res.render("match");
+  res.render("match", { scripts: ["match.script.js"] });
 });
 
 module.exports = router;
