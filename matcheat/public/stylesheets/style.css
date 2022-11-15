@@ -2,19 +2,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 :root {
-<<<<<<< HEAD
-  --gold-color: rgb(229, 184, 11); /*Pure Gold   use :  var(--gold-color); */
-  --white-color: #ffffff; /*White use: var(--white-color); */
-  --orange-color: #ff792e; /*Orange use: var(--orange-color); */
-  --orangebtn-color: #f6bd60; /*Orangebtn use: var(--orangebtn-color); */
-  --black-color: #191919; /*Black use: var(--black-color); */
-=======
-  --black-color: #463f3a; /* use :  var(--black-color); */
+
+  --black-color: #242423; /* use :  var(--black-color); */
+
+
   --greyhot-color: #8a817c; /* use :  var(--greyhot-color); */
   --greycold-color: #bcb8b1; /* use :  var(--greycold-color); */
   --white-color: #f4f3ee; /* use :  var(--white-color); */
   --yellow-color: #f5cb5c; /* use :  var(--yellow-color); */
->>>>>>> main
+
 }
 
 /******************************************General****************************************************************/
@@ -26,12 +22,12 @@
 }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-<<<<<<< HEAD
+
+  font: 14px "Roboto", sans-serif;
+
+
   background-color: var(--white-color);
-=======
-  background-color: white;
->>>>>>> main
+
 }
 
 a {
@@ -46,7 +42,7 @@ h1 {
 
 nav {
   width: 100%;
-  background-color: var(--yellow-color);
+  background-color: var(--black-color);
   height: 4rem;
   padding: 0 0.5rem;
   display: flex;
@@ -117,7 +113,7 @@ nav {
   letter-spacing: 4px;
   overflow: hidden;
   display: inline-block;
-  color: white;
+  color: var(--white-color);
   padding: 10px;
 }
 
@@ -129,7 +125,7 @@ nav {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: white;
+  background-color: var(--white-color);
   transform-origin: bottom right;
 
   transition: transform 0.25s ease-out;
@@ -143,10 +139,127 @@ nav {
 /******************************************SIGNUP****************************************************************/
 
 #signup {
-  background-color: var(--yellow-color);
+  background-color: var(--white-color);
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#signup h2 {
+  color: var(--black-color);
+  font-size: 3em;
+  padding: 20px;
+}
+
+.container-signup {
+  background-color: var(--greycold-color);
+
+  height: 70%;
+  width: 40%;
+  border-radius: 10px;
+  box-shadow: 3px 2px 22px 2px rgba(0, 0, 0, 0.58);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.label {
+  height: 40%;
+  width: 80%;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border-radius: 20px;
+  box-shadow: 2px 22px 2px rgba(0, 0, 0, 0.32);
+}
+
+.label input {
+  height: 100%;
+  width: 100%;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  outline: none;
+}
+
+.container-signup button {
+  width: 30%;
+  height: 40%;
+  background-color: var(--yellow-color);
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.container-signup button:hover {
+  cursor: pointer;
+}
+
+/******************************************LOGIN****************************************************************/
+
+#login {
+  background-color: var(--white-color);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#login h2 {
+  color: var(--black-color);
+  font-size: 3em;
+  padding: 20px;
+}
+
+.container-login {
+  background-color: var(--greycold-color);
+
+  height: 70%;
+  width: 40%;
+  border-radius: 10px;
+  box-shadow: 3px 2px 22px 2px rgba(0, 0, 0, 0.58);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.label {
+  height: 10%;
+  width: 80%;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border-radius: 20px;
+  box-shadow: 2px 22px 2px rgba(0, 0, 0, 0.32);
+}
+
+.label input {
+  height: 100%;
+  width: 100%;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  outline: none;
+}
+
+.container-login button {
+  width: 30%;
+  height: 10%;
+  background-color: var(--yellow-color);
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.container-login button:hover {
+  cursor: pointer;
 }
