@@ -2,9 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 :root {
-  --gold-color: rgb(229, 184, 11); /*Pure Gold   use :  var(--gold-color); */
-  --peach-color: #ffefe2; /*Peach use: var(--peach-color); */
-  --orange-color: #ff792e; /*Orange use: var(--orange-color); */
+  --black-color: #463f3a; /* use :  var(--black-color); */
+  --greyhot-color: #8a817c; /* use :  var(--greyhot-color); */
+  --greycold-color: #bcb8b1; /* use :  var(--greycold-color); */
+  --white-color: #f4f3ee; /* use :  var(--white-color); */
+  --yellow-color: #f5cb5c; /* use :  var(--yellow-color); */
 }
 
 /******************************************General****************************************************************/
@@ -32,10 +34,9 @@ h1 {
 
 nav {
   width: 100%;
-  background-color: var(--orange-color);
+  background-color: var(--yellow-color);
   height: 4rem;
   padding: 0 0.5rem;
-  margin-bottom: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -105,3 +106,12 @@ nav {
 }
 
 /******************************************SIGNUP****************************************************************/
+
+#signup {
+  background-color: var(--yellow-color);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
