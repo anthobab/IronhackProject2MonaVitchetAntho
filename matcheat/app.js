@@ -23,6 +23,8 @@ require("./config/session.config")(app);
 const capitalize = require("./utils/capitalize");
 const projectName = "matcheat";
 
+app.locals.appTitle = `${capitalize(projectName)}`;
+
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);

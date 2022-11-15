@@ -7,6 +7,9 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>{{appTitle}}</title>
       <link rel="stylesheet" href="/stylesheets/style.css" />
+      {{#each scripts}}
+         <script type="module" src="/js/{{this}}"></script>
+      {{/each}}
    </head>
 
    <body>
@@ -18,7 +21,8 @@
 
       {{{body}}}
 
-      <script src="/js/script.js"></script>
+      
+
    </body>
 
 </html>

@@ -37,8 +37,8 @@ const userSchema = new Schema(
       postcode: { type: Number, length: 5 },
     },
     phone: {
-      prefix: { type: Number, max: 3 },
-      number: { type: Number, max: 10 },
+      prefix: { type: Number, max: 999 },
+      number: { type: Number, length: 10 },
     },
     age: {
       type: Number,

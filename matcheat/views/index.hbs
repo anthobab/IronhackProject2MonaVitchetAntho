@@ -1,5 +1,7 @@
-<h1>Welcome to MatchEat!</h1>
-<h2>Your journey begin here, signup now and meet new people!</h2>
+<h1>{{appTitle}}</h1>
+{{#if isLoggedIn}}
+  <h2>Welcome <span class="username"> @{{currentUser.username}}</span> </h2>
+{{/if}}
 
 <div class="index-btn">
   <button id="sign-btn">
