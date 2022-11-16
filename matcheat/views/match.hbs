@@ -1,4 +1,8 @@
 <div id="matchCard" class="match-zone">
+  <div class="swipe-status">
+    <i class="fa fa-remove"></i>
+    <i class="fa fa-heart"></i>
+  </div>
   <div id="matchCardContainer" class="container-card">
   </div>
   {{! Template for the cards  }}
@@ -32,11 +36,13 @@
   <div class="buttonMatchPage">
     {{! <form action="/match" method="POST"> }}
     <button id="nextBtn">
+      <i class="fa fa-remove"></i>
       Another one pls
     </button>
     {{! </form> }}
     {{! <form action="/match" method="POST"> }}
     <button id="matchBtn">
+      <i class="fa fa-heart"></i>
       yes lets eat
     </button>
     {{! </form> }}

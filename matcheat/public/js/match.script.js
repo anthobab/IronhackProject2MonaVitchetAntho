@@ -4,7 +4,9 @@ const nextBtn = document.getElementById("nextBtn");
 const matchBtn = document.getElementById("matchBtn");
 
 const matchCardContainer = document.getElementById("matchCardContainer");
+const matchCardzone = document.getElementById("matchCard");
 const matchCardTemplate = document.getElementById("matchCardTemplate");
+
 /* this is inside the template
 const matchPic = document.getElementById("matchPic");
 const matchPseudo = document.getElementById("matchPseudo");
@@ -26,7 +28,7 @@ function initCards(allCards) {
   var newCards = matchCardContainer.querySelectorAll(
     ".match-card:not(.removed)"
   );
-  console.log("number of new cards", newCards.length);
+  // console.log("number of new cards", newCards.length);
   newCards.forEach(function (card, index) {
     card.style.zIndex = allCards.length - index;
     card.style.transform =
@@ -34,7 +36,7 @@ function initCards(allCards) {
     card.style.opacity = (10 - index) / 10;
   });
 
-  matchCardContainer.classList.add("loaded");
+  matchCardzone.classList.add("loaded");
 }
 
 function addHammer(allCards) {
@@ -49,8 +51,8 @@ function addHammer(allCards) {
       if (event.deltaX === 0) return;
       if (event.center.x === 0 && event.center.y === 0) return;
 
-      matchCardContainer.classList.toggle("tinder_love", event.deltaX > 0);
-      matchCardContainer.classList.toggle("tinder_nope", event.deltaX < 0);
+      matchCardContainer.classList.toggle("swipe_love", event.deltaX > 0);
+      matchCardContainer.classList.toggle("swipe_nope", event.deltaX < 0);
 
       var xMulti = event.deltaX * 0.03;
       var yMulti = event.deltaY / 80;
@@ -68,8 +70,8 @@ function addHammer(allCards) {
 
     hammertime.on("panend", function (event) {
       el.classList.remove("moving");
-      matchCardContainer.classList.remove("tinder_love");
-      matchCardContainer.classList.remove("tinder_nope");
+      matchCardContainer.classList.remove("swipe_love");
+      matchCardContainer.classList.remove("swipe_nope");
 
       var moveOutWidth = document.body.clientWidth;
       var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
@@ -107,7 +109,7 @@ function addHammer(allCards) {
 /** What happen if love : */
 function createButtonListener(love, allCards) {
   return function (event) {
-    var cards = document.querySelectorAll(".tinder--card:not(.removed)");
+    var cards = document.querySelectorAll(".match-card:not(.removed)");
     var moveOutWidth = document.body.clientWidth * 1.5;
 
     if (!cards.length) return false;
