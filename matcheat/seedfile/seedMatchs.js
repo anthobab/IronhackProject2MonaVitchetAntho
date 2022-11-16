@@ -35,12 +35,25 @@ async function cleanDatabase() {
 async function createMatch() {
   const allUsers = await User.find();
   const matches = [];
+  let emptyMatcher;
   for (let i = 0; i < emptyMatchData.length; i++) {
-    const emptyMatcher = emptyMatchData[i];
-    emptyMatcher.matcher = allUsers[i]._id;
+    emptyMatcher = emptyMatchData[i];
+    emptyMatcher.matcher = allUsers[emptyMatcher.matcher]._id;
+    emptyMatcher.matchee = allUsers[emptyMatcher.matchee]._id;
     emptyMatcher.date = Date.now();
-    console.log(emptyMatcher);
     matches.push(emptyMatcher);
+
+    //if (i % 2 === 0) {
+    //  emptyMatcher = emptyMatchData[i];
+    //  emptyMatcher.matcher = allUsers[i];
+    //  emptyMatcher.date = Date.now();
+    //  matches.push(emptyMatcher);
+    //} else if (i % 2 !== 0) {
+    //  emptyMatcher.matchee = allUsers[i];
+    //  emptyMatcher.date = Date.now();
+    //  matches.push(emptyMatcher);
+    //}
+    console.log(emptyMatcher);
   }
   const matchList = await Match.create(matches);
   return matchList;
