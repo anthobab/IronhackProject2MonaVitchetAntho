@@ -12,28 +12,84 @@ const matchPseudo = document.getElementById("matchPseudo");
 const matchFirstName = document.getElementById("matchFirstName");
 const matchLastName = document.getElementById("matchLastName");
 const matchAge = document.getElementById("matchAge");
+const matchDates = document.getElementById("matchDates");
+
+/*Init : list the available users
+for available dates
+which doesn't have match document with my user name*/
 
 /**
  * Event listeners
  */
 
-// nextBtn.addEventListener("submit", handleCreate);
-// matchBtn.addEventListener("submit", handleEdit);
-// fetchPhoneButton.addEventListener("click", fetchPhones);
+async function listAvailableUsers(event) {
+  // preventDefault() allow us to not send the information directly to the server
+  // Instead we will send an AJAX request that will do the job for us :)
 
-// async function handleCreate(event) {
-//   // preventDefault() allow us to not send the information directly to the server
-//   // Instead we will send an AJAX request that will do the job for us :)
-//   event.preventDefault();
-//   const name = createForm.querySelector("input[name='name']").value;
-//   const price = createForm.querySelector("input[name='price']").value;
+  if (event !== undefined) {
+    event.preventDefault();
+  }
+
+  const { data } = await axios.get(
+    "http://localhost:3000/matchAxios/findAllUsers"
+  );
+  console.log(data);
+  return data;
+}
+
+window.addEventListener("load", async () => {
+  const { user } = await listAvailableUsers();
+
+  const userMatch = user;
+  console.log(userMatch.username, typeof userMatch);
+  if (userMatch) {
+    // matchPic.querySelector("img").src = userMatch.image.url;
+    matchPseudo.textContent = userMatch.username;
+    matchFirstName.textContent = userMatch.firstName;
+    matchLastName.textContent = userMatch.lastName;
+    matchDates.textContent = userMatch.availableDates;
+    matchAge.textContent = userMatch.age;
+  }
+});
+
+nextBtn.addEventListener("click", async () => {
+  userMatch;
+});
+
+//getImageBtn.addEventListener("click", async () => {
+//  const { data } = await axios({
+//    method: "get",
+//    baseURL: "http://localhost:3000/image",
+//  });
+//
+//  console.log(data);
+//
+//  const img = document.createElement("img");
+//  img.src = data.image;
+//
+//  document.body.append(img);
+//});
+//
+//sayHiBtn.addEventListener("click", async () => {
+//  const { data } = await axios({
+//    method: "post",
+//    baseURL: "http://localhost:3000/message",
+//    data: { msg: "hello" },
+//  });
+//
+//  console.log(data);
+//});
+//
+////   const newlyCreatedPhone = await axios.(
+////     "http://localhost:3000/phone",
+////     phone
+////   );
+//
+////   const name = createForm.querySelector("input[name='name']").value;
+////   const price = createForm.querySelector("input[name='price']").value;
 
 //   const phone = { name, price };
 
-//   const newlyCreatedPhone = await axios.post(
-//     "http://localhost:3000/phone",
-//     phone
-//   );
 //   console.log(newlyCreatedPhone);
 //   await fetchPhones();
 // }

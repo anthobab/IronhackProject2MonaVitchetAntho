@@ -1,33 +1,40 @@
 <div id="matchCard" class="match-card">
+  <div class="container-card">
 
-  <picture id="matchPic">
-    <img src="" alt="no picture" />
-  </picture>
-  <ul>
-    <li>
-      pseudo :
-      <span id="matchPseudo"></span>
-    </li>
-    <li>
-      Name :
-      <span id="matchFirstName"></span>
-      <span id="matchLastName"></span>
-    </li>
-    <li>
-      age :
-      <span id="matchAge"></span>
-    </li>
+    <picture id="matchPic">
+      <img src="" alt="no picture" />
+    </picture>
+    <ul>
+      <li>
+        pseudo :
+        <span id="matchPseudo"></span>
+      </li>
+      <li>
+        Name :
+        <span id="matchFirstName"></span>
+        <span id="matchLastName"></span>
+      </li>
+      <li>
+        age :
+        <span id="matchAge"></span>
+      </li>
+      <li>
+        Dates :
+        <span id="matchDates"></span>
+      </li>
 
-  </ul>
+    </ul>
+  </div>
+  <div class="buttonMatchPage">
+    {{! <form action="/match" method="POST"> }}
+    <button id="nextBtn">
+      Another one pls
+    </button>
+    {{! </form> }}
+    {{! <form action="/match" method="POST"> }}
+    <button id="matchBtn">
+      yes lets eat
+    </button>
+    {{! </form> }}
+  </div>
 </div>
-
-{{! <form action="/match" method="POST"> }}
-<button id="nextBtn">
-  Another one pls
-</button>
-{{! </form> }}
-{{! <form action="/match" method="POST"> }}
-<button id="matchBtn">
-  yes lets eat
-</button>
-{{! </form> }}
