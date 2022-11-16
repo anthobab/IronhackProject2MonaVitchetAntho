@@ -12,8 +12,8 @@ router.get("/findAllUsers", async (req, res, next) => {
   const filter = {
     availableDates: {
       $elemMatch: {
-        $gte: new Date("16 Nov 2022 00:00:00 GMT"),
-        $lte: new Date("17 Nov 2022 00:00:00 GMT"),
+        $gte: new Date(" 16 Nov 2022 00:00:00 GMT"),
+        $lte: new Date(" 17 Nov 2022 00:00:00 GMT"),
       },
     },
   };
