@@ -14,12 +14,13 @@ router.get("/findAllUsers", async (req, res, next) => {
     },
   };
 
-  const limit = 2;
+  const limit = 5;
+  const projection = {};
 
-  const users = await User.find(filter, { limit });
-  console.log("begin \n \n", users, "end \n \n end");
-  const userFound = await User.findById(users[0]);
-  res.json({ user: userFound });
+  const users = await User.find(filter, projection, { limit });
+  //   console.log("begin \n \n", users, "end \n \n end");
+  //   const userFound = await User.findById(users[0]);
+  res.json({ users });
 });
 
 // router.get("/image", (req, res, next) => {
