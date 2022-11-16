@@ -37,7 +37,7 @@ async function listAvailableUsers(event) {
   return data;
 }
 
-nextBtn.addEventListener("click", async () => {
+window.addEventListener("load", async () => {
   const { user } = await listAvailableUsers();
 
   const userMatch = user;
@@ -50,6 +50,10 @@ nextBtn.addEventListener("click", async () => {
     matchDates.textContent = userMatch.availableDates;
     matchAge.textContent = userMatch.age;
   }
+});
+
+nextBtn.addEventListener("click", async () => {
+  userMatch;
 });
 
 //getImageBtn.addEventListener("click", async () => {
