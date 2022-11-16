@@ -6,7 +6,7 @@ const Match = require("../models/Match.model");
 
 router.get("/findAllUsers", async (req, res, next) => {
   const excluded = [];
-  const userFound = await Match.find({ date: yes });
+  // const userFound = await Match.find({ date: yes });
 
   const filter = {
     availableDates: {
