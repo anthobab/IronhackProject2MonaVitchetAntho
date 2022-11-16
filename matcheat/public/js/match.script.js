@@ -145,12 +145,13 @@ async function listAvailableUsers(event) {
     "http://localhost:3000/matchAxios/findAllUsers"
   );
   console.log("\n \n axios get data \n \n", data);
+  console.log(data);
   return data;
 }
 
 async function AddCards(event) {
   console.log("start of AddCards function ");
-  const { users } = await listAvailableUsers();
+  const users = await listAvailableUsers();
   /******** Create cards : */
 
   users.forEach((userData, index) => {

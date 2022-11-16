@@ -6,9 +6,8 @@ const Match = require("../models/Match.model");
 
 router.get("/findAllUsers", async (req, res, next) => {
   const excluded = [];
-  
-  //const userFound = await Match.find({ date: yes });
-
+  //const userDate = req.session.currentUser;
+  //const filteredDate = await Match.find({ availableDates: userDate });
 
   const filter = {
     availableDates: {
@@ -19,13 +18,22 @@ router.get("/findAllUsers", async (req, res, next) => {
     },
   };
 
-  const limit = 5;
-  const projection = {};
+  //const limit = 5;
+  //const projection = {
+  //  image: 1,
+  //  username: 1,
+  //  firstName: 1,
+  //  lastName: 1,
+  //  age: 1,
+  //};
 
-  const users = await User.find(filter, projection, { limit });
+  const users = await Match.find(filter)
+    .limit(5)
+    .populate("matcher matchee", "-hash -address -phone -availableDates -salt");
   //   console.log("begin \n \n", users, "end \n \n end");
   //   const userFound = await User.findById(users[0]);
-  res.json({ users });
+  //res.json({ users });
+  res.json(users);
 });
 
 // router.get("/image", (req, res, next) => {
