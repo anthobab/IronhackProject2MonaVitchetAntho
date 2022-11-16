@@ -1,3 +1,4 @@
+require("dotenv/config");
 require("../db/index");
 const User = require("../models/User.model");
 const users = require("../students.json");
