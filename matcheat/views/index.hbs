@@ -3,7 +3,6 @@
   <h2 class="logged-msg">Welcome
     <span class="username"> @{{currentUser.username}}</span>!
   </h2>
-  <h3>Below, a little snippet of your profile card !</h3>
   <div class="index-card">
     <ul class="resume-card">
       <li>
@@ -11,29 +10,31 @@
           <img src="{{currentUser.image.url}}" alt="no picture" />
         </picture>
       </li>
-      <li>
-        First Name:
+      <li class="li">
+
         {{currentUser.firstName}}
       </li>
-      <li>
-        Last Name:
+      <li class="li">
+
         {{currentUser.lastName}}
       </li>
-      <li>
-        Age:
+      <li class="li">
+
         {{currentUser.age}}
       </li>
     </ul>
   </div>
 {{else}}
-  <div class="index-btn">
-    <div>
-      <form action="/auth/signup">
-        <button type="submit" id="sign-btn">Signup</button>
+  <div class="container-home">
+    <div class="index-btn">
+      <div>
+        <form action="/auth/signup">
+          <button type="submit" id="sign-btn">Signup</button>
+        </form>
+      </div>
+      <form action="/auth/login">
+        <button type="submit" id="log-btn">Login</button>
       </form>
     </div>
-    <form action="/auth/login">
-      <button type="submit" id="log-btn">Login</button>
-    </form>
   </div>
 {{/if}}
