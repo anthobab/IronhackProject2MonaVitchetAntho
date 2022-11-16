@@ -1,26 +1,137 @@
-/**
- * Variable declarations
- */
+/**              Variable declarations                 */
+
 const nextBtn = document.getElementById("nextBtn");
 const matchBtn = document.getElementById("matchBtn");
 
-const matchCard = document.getElementById("matchCard");
-
+const matchCardContainer = document.getElementById("matchCardContainer");
+const matchCardTemplate = document.getElementById("matchCardTemplate");
+/* this is inside the template
 const matchPic = document.getElementById("matchPic");
-
 const matchPseudo = document.getElementById("matchPseudo");
 const matchFirstName = document.getElementById("matchFirstName");
 const matchLastName = document.getElementById("matchLastName");
 const matchAge = document.getElementById("matchAge");
 const matchDates = document.getElementById("matchDates");
+*/
 
 /*Init : list the available users
 for available dates
 which doesn't have match document with my user name*/
 
-/**
- * Event listeners
- */
+matchCardContainer.innerHTML = "";
+
+/*                      Functions                      */
+
+function initCards(allCards) {
+  var newCards = matchCardContainer.querySelectorAll(
+    ".match-card:not(.removed)"
+  );
+  console.log("number of new cards", newCards.length);
+  newCards.forEach(function (card, index) {
+    card.style.zIndex = allCards.length - index;
+    card.style.transform =
+      "scale(" + (20 - index) / 20 + ") translateY(-" + 30 * index + "px)";
+    card.style.opacity = (10 - index) / 10;
+  });
+
+  matchCardContainer.classList.add("loaded");
+}
+
+function addHammer(allCards) {
+  allCards.forEach(function (el) {
+    var hammertime = new Hammer(el);
+
+    hammertime.on("pan", function (event) {
+      el.classList.add("moving");
+    });
+
+    hammertime.on("pan", function (event) {
+      if (event.deltaX === 0) return;
+      if (event.center.x === 0 && event.center.y === 0) return;
+
+      matchCardContainer.classList.toggle("tinder_love", event.deltaX > 0);
+      matchCardContainer.classList.toggle("tinder_nope", event.deltaX < 0);
+
+      var xMulti = event.deltaX * 0.03;
+      var yMulti = event.deltaY / 80;
+      var rotate = xMulti * yMulti;
+
+      event.target.style.transform =
+        "translate(" +
+        event.deltaX +
+        "px, " +
+        event.deltaY +
+        "px) rotate(" +
+        rotate +
+        "deg)";
+    });
+
+    hammertime.on("panend", function (event) {
+      el.classList.remove("moving");
+      matchCardContainer.classList.remove("tinder_love");
+      matchCardContainer.classList.remove("tinder_nope");
+
+      var moveOutWidth = document.body.clientWidth;
+      var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
+
+      event.target.classList.toggle("removed", !keep);
+
+      if (keep) {
+        event.target.style.transform = "";
+      } else {
+        var endX = Math.max(
+          Math.abs(event.velocityX) * moveOutWidth,
+          moveOutWidth
+        );
+        var toX = event.deltaX > 0 ? endX : -endX;
+        var endY = Math.abs(event.velocityY) * moveOutWidth;
+        var toY = event.deltaY > 0 ? endY : -endY;
+        var xMulti = event.deltaX * 0.03;
+        var yMulti = event.deltaY / 80;
+        var rotate = xMulti * yMulti;
+
+        event.target.style.transform =
+          "translate(" +
+          toX +
+          "px, " +
+          (toY + event.deltaY) +
+          "px) rotate(" +
+          rotate +
+          "deg)";
+        initCards(allCards);
+      }
+    });
+  });
+}
+
+/** What happen if love : */
+function createButtonListener(love, allCards) {
+  return function (event) {
+    var cards = document.querySelectorAll(".tinder--card:not(.removed)");
+    var moveOutWidth = document.body.clientWidth * 1.5;
+
+    if (!cards.length) return false;
+
+    var card = cards[0];
+
+    card.classList.add("removed");
+
+    if (love) {
+      card.style.transform =
+        "translate(" + moveOutWidth + "px, -100px) rotate(-30deg)";
+    } else {
+      card.style.transform =
+        "translate(-" + moveOutWidth + "px, -100px) rotate(30deg)";
+    }
+
+    initCards(allCards);
+
+    event.preventDefault();
+  };
+}
+
+var nopeListener = createButtonListener(false);
+var loveListener = createButtonListener(true);
 
 async function listAvailableUsers(event) {
   // preventDefault() allow us to not send the information directly to the server
@@ -33,28 +144,65 @@ async function listAvailableUsers(event) {
   const { data } = await axios.get(
     "http://localhost:3000/matchAxios/findAllUsers"
   );
-  console.log(data);
+  console.log("\n \n axios get data \n \n", data);
   return data;
 }
 
-window.addEventListener("load", async () => {
-  const { user } = await listAvailableUsers();
+async function AddCards(event) {
+  console.log("start of AddCards function ");
+  const { users } = await listAvailableUsers();
+  /******** Create cards : */
 
-  const userMatch = user;
-  console.log(userMatch.username, typeof userMatch);
-  if (userMatch) {
-    // matchPic.querySelector("img").src = userMatch.image.url;
-    matchPseudo.textContent = userMatch.username;
-    matchFirstName.textContent = userMatch.firstName;
-    matchLastName.textContent = userMatch.lastName;
-    matchDates.textContent = userMatch.availableDates;
-    matchAge.textContent = userMatch.age;
-  }
-});
+  users.forEach((userData, index) => {
+    //clone card temmplate
+    const matchCardDomClone =
+      matchCardTemplate.content.firstElementChild.cloneNode(true); // firstElementChild allow to add event listener before append
+    // const matchCardDomClone = matchCardTemplate.content.cloneNode(true);
+    if (userData.image) {
+      matchCardDomClone.querySelector(".pic img").src = userData.image.url;
+    }
+    matchCardDomClone.querySelector(".username span.card-data").textContent =
+      userData.username;
 
-nextBtn.addEventListener("click", async () => {
-  userMatch;
-});
+    matchCardDomClone.querySelector(
+      ".name span.card-data.first-name"
+    ).textContent = userData.firstName;
+
+    matchCardDomClone.querySelector(
+      ".name span.card-data.last-name"
+    ).textContent = userData.lastName;
+
+    matchCardDomClone.querySelector(".age span.card-data").textContent =
+      userData.age;
+
+    matchCardDomClone.querySelector(".dates span.card-data").textContent =
+      userData.availableDates;
+
+    matchCardDomClone.dataset.id = userData._id;
+
+    matchCardContainer.appendChild(matchCardDomClone);
+  });
+}
+
+async function AddCardsAndinit(event) {
+  await AddCards(event);
+  const allCards = matchCardContainer.querySelectorAll(".match-card");
+  initCards(allCards);
+  addHammer(allCards);
+}
+
+/**
+ * Event listeners
+ */
+
+window.addEventListener("load", AddCardsAndinit);
+
+// nextBtn.addEventListener("click", async (event) => {});
+
+nextBtn.addEventListener("click", nopeListener);
+matchBtn.addEventListener("click", loveListener);
+
+/*************** Swipe function  ****************************************/
 
 //getImageBtn.addEventListener("click", async () => {
 //  const { data } = await axios({

@@ -583,14 +583,14 @@ h3 {
 /****************************MATCH CARD*************************/
 /* DESIGN TEMPO, A DECIDER */
 
-.match-card {
+.container-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 2em;
 }
 
-.container-card {
+.match-card {
   background-color: var(--greycold-color);
   height: 35em;
   width: 35em;
@@ -603,7 +603,7 @@ h3 {
   box-shadow: 3px 2px 22px 2px rgba(0, 0, 0, 0.58);
 }
 
-.container-card li {
+.match-card li {
   list-style: none;
   margin: 1.3em 0;
 }
