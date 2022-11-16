@@ -132,9 +132,9 @@ function loveNopeAction(love, event) {
   if (love) {
     //action if loved
     //doMAtch
-    console.log("loved", event.target, event.target.classList.add("letseat"));
+    console.log("loved", event.target);
   } else {
-    console.log("noped", event.target, event.target.classList.add("nexted"));
+    console.log("noped", event.target);
   }
 }
 
