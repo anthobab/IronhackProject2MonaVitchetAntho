@@ -6,15 +6,14 @@ const Match = require("../models/Match.model");
 
 router.get("/findAllUsers", async (req, res, next) => {
   const excluded = [];
-  
-  //const userFound = await Match.find({ date: yes });
 
+  //const userFound = await Match.find({ date: yes });
 
   const filter = {
     availableDates: {
       $elemMatch: {
-        $gte: new Date("Tue, 15 Nov 2022 00:00:00 GMT"),
-        $lte: new Date("Wed, 16 Nov 2022 00:00:00 GMT"),
+        $gte: new Date(" 16 Nov 2022 00:00:00 GMT"),
+        $lte: new Date(" 17 Nov 2022 00:00:00 GMT"),
       },
     },
   };

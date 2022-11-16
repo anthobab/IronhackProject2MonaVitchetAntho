@@ -175,6 +175,7 @@ nav {
   border: none;
   border-radius: 6px;
   font-size: 1.8em;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.43);
 }
 #log-btn {
   padding: 1.2em 12em;
@@ -185,6 +186,7 @@ nav {
   border-color: var(--yellow-color);
   border-radius: 6px;
   font-size: 1.8em;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.43);
 }
 
 .logged-msg {
@@ -336,11 +338,13 @@ h3 {
 }
 
 #about-bottom {
+  padding: 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
   max-width: 100vw;
-  text-align: center;
 }
 
 #about-bottom p {
@@ -349,13 +353,26 @@ h3 {
 }
 
 #join-p {
-  background-color: var(--greyhot-color);
+  text-align: center;
+  width: 50%;
+  background-color: var(--yellow-color);
   border-radius: 3px;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.43);
 }
 
 #log-p {
+  text-align: center;
+  width: 50%;
   background-color: var(--white-color);
+  border: solid 2px var(--yellow-color);
   border-radius: 3px;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.43);
+}
+
+.log {
+  outline: none;
+  text-decoration: none;
+  color: var(--black-color);
 }
 
 .about2 {
@@ -721,6 +738,7 @@ h3 {
 
 .your-profil {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   width: 80%;
   align-items: center;
