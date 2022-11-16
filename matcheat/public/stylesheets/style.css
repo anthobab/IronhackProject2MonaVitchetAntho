@@ -39,7 +39,6 @@ nav {
   width: 100%;
   background-color: var(--black-color);
   height: 4rem;
-  padding: 0 0.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -85,16 +84,21 @@ nav {
   transform-origin: bottom left;
 }
 
-/************************************************ INDEX ******************************************************/
-
 #home {
   display: flex;
   gap: 1rem;
-  margin-left: 1rem;
+  background-color: var(--yellow-color);
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  height: 100%;
+  width: 5vw;
 }
 #home a {
-  color: white;
+  color: var(--black-color);
 }
+
+/************************************************ INDEX ******************************************************/
 
 .index-btn {
   display: flex;
@@ -102,6 +106,20 @@ nav {
   flex-direction: column;
   align-items: center;
   align-content: stretch;
+  opacity: 0;
+  animation: new-item-animation 0.6s linear forwards;
+}
+
+@keyframes new-item-animation {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 #sign-btn {
@@ -124,29 +142,192 @@ nav {
   font-size: 1.8em;
 }
 
+.logged-msg {
+  font-size: 3em;
+  text-align: center;
+  padding: 0.7em;
+  opacity: 0;
+  animation: new-item-animation 0.6s linear forwards;
+  animation-delay: 0.1s;
+}
+
+@keyframes new-item-animation {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logged-msg span {
+  color: var(--greyhot-color);
+}
+
+.display-info {
+  background-color: var(--greycold-color);
+}
+
+h3 {
+  text-align: center;
+  opacity: 0;
+  animation: new-item-animation 0.7s linear forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes new-item-animation {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.index-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
+  opacity: 0;
+  animation: new-item-animation 0.8s linear forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes new-item-animation {
+  from {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.resume-card {
+  background-color: var(--greycold-color);
+  height: 25em;
+  width: 25em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.5em;
+  box-shadow: 3px 2px 22px 2px rgba(0, 0, 0, 0.58);
+}
+
+.resume-card li {
+  list-style: none;
+  margin: 1.3em 0;
+  font-size: 1.2em;
+}
 /**************************************ABOUT**************************************************/
 
+.about {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 1em 0;
+  opacity: 0;
+  animation: new-item-animation 0.8s linear forwards;
+}
+
+@keyframes new-item-animation {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about h2 {
+  font-size: 5em;
+  text-align: center;
+  color: var(--white-color);
+}
+
 #about-title {
-  color: #191919;
-  padding: 1em 2em;
-  background-color: rgba(0, 0, 0, 0.05);
+  padding-top: 0.7em;
+}
+
+#match-word {
+  color: var(--yellow-color);
+}
+
+#eat-word {
+  color: var(--greyhot-color);
 }
 
 #about-sub {
   color: #191919;
   padding: 1em 3em;
   margin: 1em 5em;
-  background-color: rgba(0, 0, 0, 0.05);
   text-align: center;
 }
 
 #about-text {
-  font-size: 1.3em;
+  font-size: 1.5em;
   color: #191919;
-  padding: 2em;
-  max-width: 30em;
-  text-align: justify;
+  padding: 1.3em;
+  max-width: 100vw;
+  text-align: center;
+  background-color: var(--yellow-color);
+  border-radius: 3px;
 }
+
+#about-text p {
+  padding: 0.6em 0;
+}
+
+#container-about {
+  background-color: var(--black-color);
+  height: 50em;
+  width: 50em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0.5em;
+  box-shadow: 3px 2px 22px 2px rgba(0, 0, 0, 0.58);
+}
+
+#about-bottom {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  max-width: 100vw;
+  text-align: center;
+}
+
+#about-bottom p {
+  padding: 2em 8em;
+  margin: 0.5em;
+}
+
+#join-p {
+  background-color: var(--greyhot-color);
+  border-radius: 3px;
+}
+
+#log-p {
+  background-color: var(--white-color);
+  border-radius: 3px;
+}
+
 /******************************************SIGNUP****************************************************************/
 
 #signup {
@@ -273,4 +454,56 @@ nav {
 
 .container-login button:hover {
   cursor: pointer;
+}
+
+/****************************MATCH CARD*************************/
+/* DESIGN TEMPO, A DECIDER */
+
+.match-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.container-card {
+  background-color: var(--greycold-color);
+  height: 35em;
+  width: 35em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.5em;
+  box-shadow: 3px 2px 22px 2px rgba(0, 0, 0, 0.58);
+}
+
+.container-card li {
+  list-style: none;
+  margin: 1.3em 0;
+}
+
+.buttonMatchPage {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#matchBtn,
+#nextBtn {
+  padding: 0.5em 0.7em;
+  margin: 0.8em;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.5em;
+}
+
+#nextBtn {
+  background-color: #ff686b;
+}
+
+#matchBtn {
+  background-color: #6a994e;
 }

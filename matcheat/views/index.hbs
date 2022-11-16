@@ -1,6 +1,30 @@
 <h1>{{appTitle}}</h1>
 {{#if isLoggedIn}}
-  <h2>Welcome <span class="username"> @{{currentUser.username}}</span> </h2>
+  <h2 class="logged-msg">Welcome
+    <span class="username"> @{{currentUser.username}}</span>!
+  </h2>
+  <h3>Below, a little snippet of your profile card !</h3>
+  <div class="index-card">
+    <ul class="resume-card">
+      <li>
+        <picture id="matchPic">
+          <img src="" alt="no picture" />
+        </picture>
+      </li>
+      <li>
+        First Name:
+        {{currentUser.firstName}}
+      </li>
+      <li>
+        Last Name:
+        {{currentUser.lastName}}
+      </li>
+      <li>
+        Age:
+        {{currentUser.age}}
+      </li>
+    </ul>
+  </div>
 {{else}}
   <div class="index-btn">
     <div>
