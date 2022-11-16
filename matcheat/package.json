@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "seed": "node seedfile/seedUsers",
+    "seed": "node seedfile/seedUsers && node seedfile/seedMatchs",
     "dev": "nodemon -e hbs,js server.js"
   },
   "dependencies": {
