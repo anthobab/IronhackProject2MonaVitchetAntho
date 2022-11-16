@@ -1,74 +1,92 @@
-<form action="/profile" method="POST" enctype="multipart/form-data">
+<form id="profil" action="/profile" method="POST" enctype="multipart/form-data">
+  <div class="container-profil">
 
-  <p>{{user.0.username}}</p>
-  <p>{{user.0.email}}</p>
+    <div class="your-profil">
+      {{#if user.0.image.url}}
+        <img
+          src="{{user.0.image.url}}"
+          alt="something went wrong... please try to change your profile picture"
+        />
+      {{else}}
+        please load your profile picture
+      {{/if}}
+      <p>{{user.0.username}}</p>
+      <p>{{user.0.email}}</p>
+    </div>
 
-  <input
-    type="text"
-    name="firstName"
-    value="{{user.0.firstName}}"
-    placeholder="First Name"
-  />
-
-  <input
-    type="text"
-    name="lastName"
-    value="{{user.0.lastName}}"
-    placeholder="Last Name"
-  />
-
-  <input
-    type="text"
-    name="street"
-    value="{{user.0.address.street}}"
-    placeholder="Street"
-  />
-
-  <input
-    type="text"
-    name="city"
-    value="{{user.0.address.city}}"
-    placeholder="City"
-  />
-
-  <input
-    type="text"
-    name="postcode"
-    value="{{user.0.address.postcode}}"
-    placeholder="Post Code"
-  />
-
-  <input
-    type="text"
-    name="prefix"
-    value="{{user.0.phone.prefix}}"
-    placeholder="Prefix"
-  />
-
-  <input
-    type="text"
-    name="number"
-    value="{{user.0.phone.number}}"
-    placeholder="Number"
-  />
-
-  <input type="text" name="age" value="{{user.0.age}}" placeholder="Age" />
-
-  <input
-    type="file"
-    name="picture"
-    id="picture"
-    accept="image/png, image/jpeg"
-  />
-
-  {{#if user.0.image.url}}
-    <img
-      src="{{user.0.image.url}}"
-      alt="something went wrong... please try to change your profile picture"
-    />
-  {{else}}
-    please load your profile picture
-  {{/if}}
-
-  <button>Save</button>
+    <div class="label">
+      <input
+        type="text"
+        name="firstName"
+        value="{{user.0.firstName}}"
+        placeholder="First Name"
+      />
+    </div>
+    <div class="label">
+      <input
+        type="text"
+        name="lastName"
+        value="{{user.0.lastName}}"
+        placeholder="Last Name"
+      />
+    </div>
+    <div class="label">
+      <input
+        type="text"
+        name="street"
+        value="{{user.0.address.street}}"
+        placeholder="Street"
+      />
+    </div>
+    <div class="label">
+      <input
+        type="text"
+        name="city"
+        value="{{user.0.address.city}}"
+        placeholder="City"
+      />
+    </div>
+    <div class="label">
+      <input
+        type="text"
+        name="postcode"
+        value="{{user.0.address.postcode}}"
+        placeholder="Post Code"
+      />
+    </div>
+    <div class="container-phone">
+      <div class="label" id="prefix">
+        <input
+          type="text"
+          name="prefix"
+          value="{{user.0.phone.prefix}}"
+          placeholder="Prefix"
+        />
+      </div>
+      <div class="label" id="number">
+        <input
+          type="text"
+          name="number"
+          value="{{user.0.phone.number}}"
+          placeholder="Number"
+        />
+      </div>
+    </div>
+    <div class="label">
+      <input
+        type="text"
+        name="age"
+        value="{{user.0.age}}"
+        placeholder="Age"
+      /></div>
+    <div class="label">
+      <input
+        type="file"
+        name="picture"
+        id="picture"
+        accept="image/png, image/jpeg"
+      />
+    </div>
+    <button>Save</button>
+  </div>
 </form>
