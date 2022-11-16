@@ -7,8 +7,9 @@ const Match = require("../models/Match.model");
 router.get("/all-matchs", async (req, res) => {
   const userId = req.session.currentUser;
   console.log(userId);
-  const allMatchs = await Match.find();
-  const filteredMatchs = await Match.find({ userId });
+  const filteredMatchs = await Match.find({
+    $or: [{ matcher: userId }, { matchee: userId }],
+  });
   console.log(filteredMatchs);
   res.render("all-matchs", { allMatchs: filteredMatchs });
 });

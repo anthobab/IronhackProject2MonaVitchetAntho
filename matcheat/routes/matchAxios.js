@@ -5,6 +5,9 @@ const Match = require("../models/Match.model");
 /* GET home page */
 
 router.get("/findAllUsers", async (req, res, next) => {
+  const excluded = [];
+  const userFound = await Match.find({ date: yes });
+
   const filter = {
     availableDates: {
       $elemMatch: {

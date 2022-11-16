@@ -110,6 +110,12 @@ nav {
   animation: new-item-animation 0.6s linear forwards;
 }
 
+.index-card img {
+  max-width: 10vw;
+  padding-top: 0.5em;
+  width: 100%;
+}
+
 @keyframes new-item-animation {
   from {
     opacity: 0;
@@ -214,7 +220,7 @@ h3 {
 
 .resume-card {
   background-color: var(--greycold-color);
-  height: 25em;
+  height: 30em;
   width: 25em;
   border-radius: 10px;
   display: flex;
