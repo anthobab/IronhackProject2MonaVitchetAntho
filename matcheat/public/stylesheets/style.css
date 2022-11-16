@@ -256,11 +256,17 @@ h3 {
 .about h2 {
   font-size: 5em;
   text-align: center;
-  color: var(--white-color);
+  background-color: var(--white-color);
+  height: 30%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#about-title {
-  padding-top: 0.7em;
+#about-word {
+  padding-right: 30px;
+  color: var(--black-color);
 }
 
 #match-word {
@@ -271,31 +277,10 @@ h3 {
   color: var(--greyhot-color);
 }
 
-#about-sub {
-  color: #191919;
-  padding: 1em 3em;
-  margin: 1em 5em;
-  text-align: center;
-}
-
-#about-text {
-  font-size: 1.5em;
-  color: #191919;
-  padding: 1.3em;
-  max-width: 100vw;
-  text-align: center;
-  background-color: var(--yellow-color);
-  border-radius: 3px;
-}
-
-#about-text p {
-  padding: 0.6em 0;
-}
-
 #container-about {
   background-color: var(--black-color);
-  height: 50em;
-  width: 50em;
+  height: 30em;
+  width: 90%;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -326,6 +311,96 @@ h3 {
 #log-p {
   background-color: var(--white-color);
   border-radius: 3px;
+}
+
+.about2 {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 1em 0;
+  opacity: 0;
+  height: 30em;
+  animation: new-item-animation 0.8s linear forwards;
+}
+
+#why-matcheat {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: 20px;
+  margin-left: 70px;
+  width: 50%;
+  height: 100%;
+  background-image: url("../images/Why.png");
+  background-size: cover;
+  /* background-color: var(--yellow-color); */
+  border-radius: 10px;
+  box-shadow: 3px 2px 22px 2px rgba(0, 0, 0, 0.58);
+}
+
+.about-text {
+  height: 20em;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-text p {
+  background-color: var(--white-color);
+  height: 10em;
+  position: fixed;
+  margin-left: 700px;
+  display: flex;
+  padding: 50px;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.about3 {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  padding: 1em 0;
+  opacity: 0;
+  height: 30em;
+  animation: new-item-animation 0.8s linear forwards;
+}
+
+#how-matcheat {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 20px;
+  margin-right: 70px;
+  width: 50%;
+  height: 100%;
+  background-image: url("../images/Work.png");
+  background-size: cover;
+  /* background-color: var(--yellow-color); */
+  border-radius: 10px;
+  box-shadow: 3px 2px 22px 2px rgba(0, 0, 0, 0.58);
+}
+
+.about-text2 {
+  height: 20em;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-text2 p {
+  background-color: var(--white-color);
+  height: 10em;
+  position: fixed;
+  margin-right: 700px;
+  display: flex;
+  padding: 50px;
+  justify-content: flex-end;
+  align-items: center;
+  border-radius: 5px;
 }
 
 /******************************************SIGNUP****************************************************************/
@@ -403,6 +478,8 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url("../images/dc402d794372b62f1c79dc485872639e.png");
+  background-size: contain;
 }
 
 #login h2 {
@@ -523,12 +600,6 @@ h3 {
   padding: 10px;
 }
 
-#profil h2 {
-  color: var(--black-color);
-  font-size: 3em;
-  padding: 10px;
-}
-
 .container-profil {
   background-color: var(--greycold-color);
   height: 70%;
@@ -601,6 +672,11 @@ h3 {
   background-size: 100% 0.3em;
   background-position: 0 80%;
   transition: background-size 0.25s ease-in;
+}
+
+.your-profil span {
+  color: var(--black-color);
+  font-size: 3rem;
 }
 
 .your-profil p:hover {
