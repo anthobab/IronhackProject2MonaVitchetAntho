@@ -32,7 +32,7 @@ router.post(
       number,
       age,
     } = req.body;
-    console.log(req.file);
+
     try {
       const userUpdate = await User.findByIdAndUpdate(
         userSession._id,
@@ -45,15 +45,13 @@ router.post(
           phone: { prefix, number },
           age,
           image: {
-            name: req.file.originalname,
-            URL: req.file.path,
+            name: req.file.originalame,
+            url: req.file.path,
           },
         },
         { new: true }
       );
-
       req.session.currentUser = userUpdate;
-
       await userUpdate.save();
       res.redirect("/");
     } catch (error) {
