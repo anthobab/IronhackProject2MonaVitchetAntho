@@ -654,6 +654,7 @@ h3 {
 
 #profil img {
   max-width: 100px;
+  min-width: 100px;
   border-radius: 50px;
   box-shadow: 3px 2px 22px 2px rgba(0, 0, 0, 0.58);
 }
