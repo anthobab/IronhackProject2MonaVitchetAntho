@@ -84,21 +84,42 @@ nav {
   transform-origin: bottom left;
 }
 
-#home {
+#home img {
   display: flex;
-  gap: 1rem;
-  background-color: var(--yellow-color);
   justify-content: center;
   align-items: center;
-  padding: 1em;
-  height: 100%;
-  width: 5vw;
+  width: 100px;
+  height: 100px;
 }
-#home a {
-  color: var(--black-color);
+
+#home img:hover {
+  cursor: pointer;
 }
 
 /************************************************ INDEX ******************************************************/
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.container-title {
+  display: flex;
+  justify-content: center;
+}
+.title-home {
+  background-image: linear-gradient(120deg, #f5cb5c, #f5cb5c 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.3em;
+  background-position: 0 80%;
+  transition: background-size 0.25s ease-in;
+  width: 20%;
+  text-align: center;
+}
+.title-home:hover {
+  background-size: 100% 88% !important;
+}
 
 .container-home {
   background-image: url("../images/Blanc\ Élégant\ et\ Simple\ Général\ Photographie\ Site\ Web\ \(1\).png");
@@ -276,13 +297,14 @@ h3 {
     transform: translateY(0);
   }
 }
-
+.about img {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
 .about h2 {
   font-size: 5em;
   text-align: center;
-  background-color: var(--white-color);
-  height: 30%;
-  width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -290,7 +312,7 @@ h3 {
 
 #about-word {
   padding-right: 30px;
-  color: var(--black-color);
+  color: var(--white-color);
 }
 
 #match-word {
@@ -298,7 +320,7 @@ h3 {
 }
 
 #eat-word {
-  color: var(--greyhot-color);
+  color: var(--yellow-color);
 }
 
 #container-about {
@@ -307,10 +329,9 @@ h3 {
   width: 90%;
   border-radius: 10px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+
+  justify-content: center;
   align-items: center;
-  gap: 0.5em;
   box-shadow: 3px 2px 22px 2px rgba(0, 0, 0, 0.58);
 }
 

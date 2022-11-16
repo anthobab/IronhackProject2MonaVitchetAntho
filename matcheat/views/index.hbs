@@ -1,4 +1,5 @@
-<h1>{{appTitle}}</h1>
+<div class="container-title">
+  <h1 class="title-home">{{appTitle}}</h1></div>
 {{#if isLoggedIn}}
   <h2 class="logged-msg">Welcome
     <span class="username"> @{{currentUser.username}}</span>!
@@ -27,13 +28,15 @@
 {{else}}
   <div class="container-home">
     <div class="index-btn">
+      <img class="logo" src="/images/2.png" alt="" />
       <div>
+
         <form action="/auth/signup">
-          <button type="submit" id="sign-btn">Signup</button>
+          <button type="submit" id="sign-btn">SIGN UP</button>
         </form>
       </div>
       <form action="/auth/login">
-        <button type="submit" id="log-btn">Login</button>
+        <button type="submit" id="log-btn">LOG IN</button>
       </form>
     </div>
   </div>
