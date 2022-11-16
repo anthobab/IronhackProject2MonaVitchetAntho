@@ -100,6 +100,15 @@ nav {
 
 /************************************************ INDEX ******************************************************/
 
+.container-home {
+  background-image: url("../images/Blanc\ Élégant\ et\ Simple\ Général\ Photographie\ Site\ Web\ \(1\).png");
+  background-size: cover;
+  height: 44em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .index-btn {
   display: flex;
   justify-content: center;
@@ -114,6 +123,15 @@ nav {
   max-width: 10vw;
   padding-top: 0.5em;
   width: 100%;
+  border-radius: 50px;
+}
+
+.li {
+  background-image: linear-gradient(120deg, #f5cb5c, #f5cb5c 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.3em;
+  background-position: 0 80%;
+  transition: background-size 0.25s ease-in;
 }
 
 @keyframes new-item-animation {
@@ -426,6 +444,15 @@ h3 {
   color: var(--black-color);
   font-size: 3em;
   padding: 20px;
+  background-image: linear-gradient(120deg, #f5cb5c, #f5cb5c 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.3em;
+  background-position: 0 80%;
+  transition: background-size 0.25s ease-in;
+}
+
+#signup h2:hover {
+  background-size: 100% 88% !important;
 }
 
 .container-signup {
@@ -492,6 +519,18 @@ h3 {
   color: var(--black-color);
   font-size: 3em;
   padding: 20px;
+  color: var(--black-color);
+  font-size: 3em;
+  padding: 20px;
+  background-image: linear-gradient(120deg, #f5cb5c, #f5cb5c 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.3em;
+  background-position: 0 80%;
+  transition: background-size 0.25s ease-in;
+}
+
+#login h2:hover {
+  background-size: 100% 88% !important;
 }
 
 .container-login {
