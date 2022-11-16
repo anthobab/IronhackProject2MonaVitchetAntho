@@ -13,13 +13,12 @@ router.get("/auth/login", (req, res) => {
 // ROUTE LOG IN //
 
 router.post("/login", async (req, res) => {
-  console.log("SESSION =====> ", req.session);
   const { password, usernameOrEmail } = req.body;
+
   try {
     const user =
       (await User.findOne({ email: usernameOrEmail })) ||
       (await User.findOne({ username: usernameOrEmail }));
-    console.log(user, "test");
     const newHash = SHA256(password + user.salt).toString(encBase64);
     if (!user) {
       res.render("auth/login", {

@@ -32,6 +32,7 @@ router.post(
       number,
       age,
     } = req.body;
+
     console.log(req.file);
 
     // res.redirect("/");
@@ -72,8 +73,8 @@ router.post(
         );
       }
 
-      req.session.currentUser = userUpdate;
 
+      req.session.currentUser = userUpdate;
       await userUpdate.save();
       res.redirect("/");
     } catch (error) {

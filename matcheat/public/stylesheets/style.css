@@ -337,6 +337,8 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url("../images/dc402d794372b62f1c79dc485872639e.png");
+  background-size: contain;
 }
 
 #signup h2 {
