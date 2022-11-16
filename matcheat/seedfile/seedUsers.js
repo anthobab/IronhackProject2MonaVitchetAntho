@@ -27,13 +27,13 @@ async function createUsers() {
       firstName: "none",
       lastName: "none",
       email: el.name + "@ironhack.fr",
-      hash: "erjbgvolnrsfd",
-      salt: "kjrsbdvkjbnzr",
+      hash: "OMVKRUJmPUZd10egvA7TWHUkKQxq0qNNcH3do6rD3j0=",
+      salt: "xZaNdV-7neDQMOC4",
       availableDates: [Date(2022, 12, 1)],
-      // image: {
-      //   type: Schema.Types.ObjectId,
-      //   ref: "FileModel",
-      // },
+      image: {
+        name: `picture ${el.github.username}`,
+        url: "https://placeimg.com/600/300/people",
+      },
     };
   });
   console.log(formatedUsers.length);
