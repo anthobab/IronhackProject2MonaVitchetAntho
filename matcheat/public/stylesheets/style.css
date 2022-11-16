@@ -11,7 +11,9 @@
 
 /******************************************General****************************************************************/
 
-* {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -621,36 +623,158 @@ h3 {
 /****************************MATCH CARD*************************/
 /* DESIGN TEMPO, A DECIDER */
 
-.container-card {
+/* start swipe css here*/
+.match-zone {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 2em;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.loaded.match-zone {
+  opacity: 1;
+}
+
+.swipe-status {
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+}
+
+.swipe-status i {
+  font-size: 100px;
+  opacity: 0;
+  transform: scale(0.3);
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+}
+
+.swipe_love .fa-heart {
+  opacity: 0.7;
+  transform: scale(1);
+}
+
+.swipe_nope .fa-remove {
+  opacity: 0.7;
+  transform: scale(1);
+}
+
+.container-card {
+  margin-top: 2em; /*our css add*/
+  flex-grow: 1;
+  padding-top: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 1;
 }
 
 .match-card {
-  background-color: var(--greycold-color);
-  height: 35em;
-  width: 35em;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  gap: 0.5em;
-  box-shadow: 3px 2px 22px 2px rgba(0, 0, 0, 0.58);
+  display: inline-block;
+  width: 90vw;
+  max-width: 400px;
+  height: 70vh;
+  /* height: 35em; */ /* our css add */
+  /* width: 35em; */ /* our css add */
+  /* gap: 0.5em;  */ /*our css add*/
+  background-color: var(--greycold-color); /*our css add*/
+  padding-bottom: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: absolute;
+  will-change: transform;
+  transition: all 0.3s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+  box-shadow: 3px 2px 22px 2px rgba(0, 0, 0, 0.58); /*our css add*/
+  border-radius: 10px; /*our css add*/
+}
+
+.moving.match-card {
+  transition: none;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+}
+
+.match-card img {
+  max-width: 100%;
+  pointer-events: none;
+}
+
+.match-card h3 {
+  margin-top: 32px;
+  font-size: 32px;
+  padding: 0 16px;
+  pointer-events: none;
+}
+
+.match-card p {
+  margin-top: 24px;
+  font-size: 20px;
+  padding: 0 16px;
+  pointer-events: none;
 }
 
 .match-card li {
   list-style: none;
   margin: 1.3em 0;
+  pointer-events: none;
+}
+.match-card ul {
+  pointer-events: none;
 }
 
 .buttonMatchPage {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  /*display: flex; */ /*our css add*/
+  /* align-items: center; */ /*our css add*/
+  /* justify-content: space-evenly;*/ /*our css add*/
+  flex: 0 0 100px;
+  text-align: center;
+  padding-top: 20px;
 }
+
+.buttonMatchPage button {
+  border-radius: 50%;
+  line-height: 60px;
+  /* width: 60px; */
+  border: 0;
+  background: #ffffff;
+  display: inline-block;
+  margin: 0 8px;
+}
+
+.buttonMatchPage button:focus {
+  outline: 0;
+}
+
+.buttonMatchPage i {
+  font-size: 32px;
+  vertical-align: middle;
+}
+
+/********    Here    *****************/
+.fa-heart {
+  color: #e73bae;
+}
+
+.fa-remove {
+  color: #005698;
+}
+
+/* end swipe css*/
 
 #matchBtn,
 #nextBtn {
