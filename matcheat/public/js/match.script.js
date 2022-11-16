@@ -7,15 +7,6 @@ const matchCardContainer = document.getElementById("matchCardContainer");
 const matchCardzone = document.getElementById("matchCard");
 const matchCardTemplate = document.getElementById("matchCardTemplate");
 
-/* this is inside the template
-const matchPic = document.getElementById("matchPic");
-const matchPseudo = document.getElementById("matchPseudo");
-const matchFirstName = document.getElementById("matchFirstName");
-const matchLastName = document.getElementById("matchLastName");
-const matchAge = document.getElementById("matchAge");
-const matchDates = document.getElementById("matchDates");
-*/
-
 /*Init : list the available users
 for available dates
 which doesn't have match document with my user name*/
@@ -51,8 +42,8 @@ function addHammer(allCards) {
       if (event.deltaX === 0) return;
       if (event.center.x === 0 && event.center.y === 0) return;
 
-      matchCardContainer.classList.toggle("swipe_love", event.deltaX > 0);
-      matchCardContainer.classList.toggle("swipe_nope", event.deltaX < 0);
+      matchCardzone.classList.toggle("swipe_love", event.deltaX > 0);
+      matchCardzone.classList.toggle("swipe_nope", event.deltaX < 0);
 
       var xMulti = event.deltaX * 0.03;
       var yMulti = event.deltaY / 80;
@@ -70,8 +61,8 @@ function addHammer(allCards) {
 
     hammertime.on("panend", function (event) {
       el.classList.remove("moving");
-      matchCardContainer.classList.remove("swipe_love");
-      matchCardContainer.classList.remove("swipe_nope");
+      matchCardzone.classList.remove("swipe_love");
+      matchCardzone.classList.remove("swipe_nope");
 
       var moveOutWidth = document.body.clientWidth;
       var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
@@ -92,6 +83,8 @@ function addHammer(allCards) {
         var yMulti = event.deltaY / 80;
         var rotate = xMulti * yMulti;
 
+        loveNopeAction(event.deltaX > 0, event.target);
+
         event.target.style.transform =
           "translate(" +
           toX +
@@ -100,6 +93,7 @@ function addHammer(allCards) {
           "px) rotate(" +
           rotate +
           "deg)";
+
         initCards(allCards);
       }
     });
@@ -126,14 +120,32 @@ function createButtonListener(love, allCards) {
         "translate(-" + moveOutWidth + "px, -100px) rotate(30deg)";
     }
 
+    loveNopeAction(love, card);
+
     initCards(allCards);
 
     event.preventDefault();
   };
 }
 
-var nopeListener = createButtonListener(false);
-var loveListener = createButtonListener(true);
+function loveNopeAction(love, event) {
+  if (love) {
+    //action if loved
+    //doMAtch
+    console.log("loved", event.target, event.target.classList.add("letseat"));
+  } else {
+    console.log("noped", event.target, event.target.classList.add("nexted"));
+  }
+}
+
+var nopeListener = createButtonListener(
+  false,
+  matchCardContainer.querySelectorAll(".match-card")
+);
+var loveListener = createButtonListener(
+  true,
+  matchCardContainer.querySelectorAll(".match-card")
+);
 
 async function listAvailableUsers(event) {
   // preventDefault() allow us to not send the information directly to the server
