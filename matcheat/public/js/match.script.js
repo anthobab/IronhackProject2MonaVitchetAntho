@@ -126,13 +126,13 @@ function createButtonListener(love, allCards) {
   };
 }
 
-function loveNopeAction(love, event) {
+function loveNopeAction(love, card) {
   if (love) {
     //action if loved
     //doMAtch
-    console.log("loved", event.target);
+    console.log("loved", card);
   } else {
-    console.log("noped", event.target);
+    console.log("noped", card);
   }
 }
 
@@ -162,9 +162,9 @@ async function listAvailableUsers(event) {
 
 async function AddCards(event) {
   console.log("start of AddCards function ");
-  const users = await listAvailableUsers();
+  const users = await listAvailableUsers(event);
   /******** Create cards : */
-
+  console.log(users);
   users.forEach((userData, index) => {
     //clone card temmplate
     const matchCardDomClone =
