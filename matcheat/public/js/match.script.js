@@ -2,7 +2,6 @@
 
 const nextBtn = document.getElementById("nextBtn");
 const matchBtn = document.getElementById("matchBtn");
-
 const matchCardContainer = document.getElementById("matchCardContainer");
 const matchCardzone = document.getElementById("matchCard");
 const matchCardTemplate = document.getElementById("matchCardTemplate");
@@ -10,7 +9,6 @@ const matchCardTemplate = document.getElementById("matchCardTemplate");
 /*Init : list the available users
 for available dates
 which doesn't have match document with my user name*/
-
 matchCardContainer.innerHTML = "";
 
 /*                      Functions                      */
@@ -149,22 +147,22 @@ var loveListener = createButtonListener(
 
 async function listAvailableUsers(event) {
   // preventDefault() allow us to not send the information directly to the server
-  // Instead we will send an AJAX request that will do the job for us :)
 
   if (event !== undefined) {
     event.preventDefault();
-  }
 
-  const { data } = await axios.get(
-    "http://localhost:3000/matchAxios/findAllUsers"
-  );
-  console.log("\n \n axios get data \n \n", data);
-  return data;
+    const { data } = await axios.get(
+      "http://localhost:3000/matchAxios/findAllUsers"
+    );
+    console.log("\n \n axios get data \n \n", data);
+    console.log(data);
+    return data;
+  }
 }
 
 async function AddCards(event) {
   console.log("start of AddCards function ");
-  const { users } = await listAvailableUsers();
+  const users = await listAvailableUsers();
   /******** Create cards : */
 
   users.forEach((userData, index) => {
