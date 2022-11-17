@@ -633,6 +633,7 @@ h3 {
   position: relative;
   opacity: 0;
   transition: opacity 0.1s ease-in-out;
+  /* background-image: url("../images/dc402d794372b62f1c79dc485872639e.png"); */
 }
 
 .loaded.match-zone {
@@ -685,10 +686,10 @@ h3 {
   width: 90vw;
   max-width: 400px;
   height: 70vh;
-  /* height: 35em; */ /* our css add */
-  /* width: 35em; */ /* our css add */
-  /* gap: 0.5em;  */ /*our css add*/
-  background-color: var(--greycold-color); /*our css add*/
+  /* height: 35em; our css add */
+  /* width: 35em; our css add */
+  /* gap: 0.5em; our css add */
+  background-color: var(--white-color); /*our css add*/
   padding-bottom: 40px;
   border-radius: 8px;
   overflow: hidden;
@@ -711,30 +712,41 @@ h3 {
 
 .match-card img {
   max-width: 100%;
+  height: 80%;
+  object-fit: cover;
   pointer-events: none;
 }
 
-.match-card h3 {
-  margin-top: 32px;
-  font-size: 32px;
-  padding: 0 16px;
-  pointer-events: none;
+.username {
+  padding: 10px;
 }
 
-.match-card p {
-  margin-top: 24px;
-  font-size: 20px;
-  padding: 0 16px;
-  pointer-events: none;
+#username {
+  background-image: linear-gradient(120deg, #f5cb5c, #f5cb5c 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.3em;
+  background-position: 0 80%;
+  transition: background-size 0.25s ease-in;
+  font-size: 30px;
 }
 
 .match-card li {
   list-style: none;
-  margin: 1.3em 0;
   pointer-events: none;
+  color: var(--black-color);
 }
 .match-card ul {
   pointer-events: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 15%;
+}
+
+.match-card ul li {
+  font-size: 16px;
+  color: var(--black-color);
+  gap: 5px;
 }
 
 .buttonMatchPage {
@@ -749,9 +761,8 @@ h3 {
 .buttonMatchPage button {
   border-radius: 50%;
   line-height: 60px;
-  /* width: 60px; */
   border: 0;
-  background: #ffffff;
+  background-color: var(--white-color);
   display: inline-block;
   margin: 0 8px;
 }
@@ -761,17 +772,17 @@ h3 {
 }
 
 .buttonMatchPage i {
-  font-size: 32px;
+  font-size: 80px;
   vertical-align: middle;
 }
 
 /********    Here    *****************/
 .fa-heart {
-  color: #e73bae;
+  color: var(--yellow-color);
 }
 
 .fa-remove {
-  color: #005698;
+  color: var(--black-color);
 }
 
 /* end swipe css*/
@@ -784,14 +795,6 @@ h3 {
   border: none;
   border-radius: 6px;
   font-size: 1.5em;
-}
-
-#nextBtn {
-  background-color: #ff686b;
-}
-
-#matchBtn {
-  background-color: #6a994e;
 }
 
 /**************************************PROFIL**************************************************/
@@ -821,15 +824,14 @@ h3 {
   padding: 20px;
 }
 
-#profil .label {
+#profil .label-profil {
   width: 80%;
   background-color: var(--white-color);
   color: var(--black-color);
   border-radius: 20px;
-  box-shadow: 2px 22px 2px rgba(0, 0, 0, 0.32);
 }
 
-#profil .label input {
+#profil .label-profil input {
   height: 100%;
   width: 100%;
   background-color: var(--white-color);
@@ -838,6 +840,7 @@ h3 {
   border-radius: 20px;
   padding: 10px;
   outline: none;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.38);
 }
 
 .container-profil button {
@@ -903,4 +906,58 @@ h3 {
 
 .container-phone #number {
   width: 100%;
+}
+
+.delete {
+  display: flex;
+  justify-content: center;
+}
+
+/******************************************DELETE****************************************************************/
+
+#delete {
+  background-color: var(--white-color);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/dc402d794372b62f1c79dc485872639e.png");
+  background-size: contain;
+}
+
+.delete {
+  background-color: var(--greycold-color);
+
+  height: 70%;
+  width: 40%;
+  border-radius: 10px;
+  box-shadow: 3px 2px 22px 2px rgba(0, 0, 0, 0.58);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.delete button {
+  width: 30%;
+  height: 10%;
+  background-color: red;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.delete p {
+  text-align: center;
+  padding: 20px;
+}
+
+.delete img {
+  height: 100px;
+}
+
+.delete button:hover {
+  cursor: pointer;
 }
