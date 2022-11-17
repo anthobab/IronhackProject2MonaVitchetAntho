@@ -18,8 +18,8 @@ router.get("/findAllUsers", async (req, res, next) => {
   const filterAvailableUsers = {
     availableDates: {
       $elemMatch: {
-        $gte: new Date(" 16 Nov 2022 00:00:00 GMT"),
-        $lte: new Date(" 17 Nov 2022 00:00:00 GMT"),
+        $gte: new Date(" 17 Nov 2022 00:00:00 GMT"),
+        $lte: new Date(" 18 Nov 2022 00:00:00 GMT"),
       },
     },
   };
@@ -56,8 +56,8 @@ router.get("/findAllUsers", async (req, res, next) => {
   const filterMeeting = {
     availableDates: {
       $elemMatch: {
-        $gte: new Date(" 16 Nov 2022 00:00:00 GMT"),
-        $lte: new Date(" 17 Nov 2022 00:00:00 GMT"),
+        $gte: new Date(" 17 Nov 2022 00:00:00 GMT"),
+        $lte: new Date(" 18 Nov 2022 00:00:00 GMT"),
       },
     },
   };
@@ -66,8 +66,8 @@ router.get("/findAllUsers", async (req, res, next) => {
   const filterUsers = {
     availableDates: {
       $elemMatch: {
-        $gte: new Date(" 16 Nov 2022 00:00:00 GMT"),
-        $lte: new Date(" 17 Nov 2022 00:00:00 GMT"),
+        $gte: new Date(" 17 Nov 2022 00:00:00 GMT"),
+        $lte: new Date(" 18 Nov 2022 00:00:00 GMT"),
       },
     },
     _id: { $nin: excludesUsersId },
