@@ -5,7 +5,7 @@ const matchBtn = document.getElementById("matchBtn");
 const matchCardContainer = document.getElementById("matchCardContainer");
 const matchCardzone = document.getElementById("matchCard");
 const matchCardTemplate = document.getElementById("matchCardTemplate");
-
+const base_url = window.location.origin;
 /*Init : list the available users
 for available dates
 which doesn't have match document with my user name*/
@@ -134,14 +134,10 @@ async function loveNopeAction(love, card) {
   );
   if (love) {
     //action if loved
-
-    const matchStatus = await axios.post(
-      process.env.SERVER_URL + "/matchAxios/createMatch",
-      {
-        matchee: `${card.getAttribute("data-id")}`,
-        date: `${Date(card.querySelector(".dates span").textContent)}`,
-      }
-    );
+    const matchStatus = await axios.post(base_url + "/matchAxios/createMatch", {
+      matchee: `${card.getAttribute("data-id")}`,
+      date: `${Date(card.querySelector(".dates span").textContent)}`,
+    });
 
     console.log("loved", card, matchStatus);
   } else {
@@ -164,9 +160,7 @@ async function listAvailableUsers(event) {
   if (event !== undefined) {
     event.preventDefault();
 
-    const { data } = await axios.get(
-      process.env.SERVER_URL + "/matchAxios/findAllUsers"
-    );
+    const { data } = await axios.get(base_url + "/matchAxios/findAllUsers");
     console.log("\n \n axios get data \n \n", data);
     console.log(data);
     return data;
@@ -232,7 +226,7 @@ matchBtn.addEventListener("click", loveListener);
 //getImageBtn.addEventListener("click", async () => {
 //  const { data } = await axios({
 //    method: "get",
-//    baseURL: process.env.SERVER_URL + "/image",
+//    baseURL: base_url + "/image",
 //  });
 //
 //  console.log(data);
@@ -246,7 +240,7 @@ matchBtn.addEventListener("click", loveListener);
 //sayHiBtn.addEventListener("click", async () => {
 //  const { data } = await axios({
 //    method: "post",
-//    baseURL: process.env.SERVER_URL + "/message",
+//    baseURL: base_url + "/message",
 //    data: { msg: "hello" },
 //  });
 //
@@ -254,7 +248,7 @@ matchBtn.addEventListener("click", loveListener);
 //});
 //
 ////   const newlyCreatedPhone = await axios.(
-////     process.env.SERVER_URL + "/phone",
+////     base_url + "/phone",
 ////     phone
 ////   );
 //
@@ -295,7 +289,7 @@ matchBtn.addEventListener("click", loveListener);
 // }
 
 // async function fetchPhones() {
-//   const { data } = await axios.get(process.env.SERVER_URL + "/phone");
+//   const { data } = await axios.get(base_url + "/phone");
 //   listPhones.innerHTML = "";
 //   data.forEach((phone) => {
 //     const li = document.createElement("li");
