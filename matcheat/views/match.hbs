@@ -8,42 +8,44 @@
   {{! Template for the cards  }}
   <template id="matchCardTemplate">
     <div class="match-card">
+      <li class="username"><span id="username" class="card-data"></span>
+      </li>
       <picture class="pic">
         <img src="" alt="no picture loaded" />
-      </picture>
-      <ul>
-        <li class="username">
-          pseudo :
-          <span class="card-data"></span>
-        </li>
-        <li class="name">
-          Name :
-          <span class="first-name card-data"></span>
-          <span class="last-name card-data"></span>
-        </li>
-        <li class="age">
-          age :
-          <span class="card-data"></span>
-        </li>
-        <li class="dates">
-          Dates :
-          <span class="card-data"></span>
-        </li>
 
-      </ul>
+        <ul>
+
+          <li class="name">
+
+            <span class="first-name card-data"></span>
+            <span class="last-name card-data"></span>
+          </li>
+          <li class="age">
+            26 ans
+            <span class="card-data"></span>
+          </li>
+          <li class="dates">
+            12 février 2022
+            <span class="card-data">
+            </span>
+          </li>
+
+        </ul>
+      </picture>
+
     </div>
   </template>
   <div class="buttonMatchPage">
     {{! <form action="/match" method="POST"> }}
     <button id="nextBtn">
       <i class="fa fa-remove"></i>
-      Another one pls
+
     </button>
     {{! </form> }}
     {{! <form action="/match" method="POST"> }}
     <button id="matchBtn">
       <i class="fa fa-heart"></i>
-      yes lets eat
+
     </button>
     {{! </form> }}
   </div>

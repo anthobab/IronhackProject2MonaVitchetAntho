@@ -40,7 +40,7 @@ router.post("/signup", async (req, res) => {
     const usernameExist = await User.findOne({ username });
     if (emailExist) {
       res.render("auth/signup", {
-        errorMessage: "L'email n'existe pas",
+        errorMessage: "Le mail est déjà utilisé",
       });
     } else if (usernameExist) {
       res.render("auth/signup", {
@@ -71,8 +71,6 @@ router.get("/auth/logout", async (req, res) => {
   try {
     await req.session.destroy();
   } catch (error) {}
-
-  res.locals.isLoggedIn = false;
 
   res.redirect("/");
 });
