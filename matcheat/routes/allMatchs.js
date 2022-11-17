@@ -7,22 +7,15 @@ const mongoose = require("mongoose");
 
 router.get("/all-matchs", async (req, res) => {
   const userId = new mongoose.Types.ObjectId(res.locals.currentUser._id);
-  console.log(userId);
+
   const filteredMatchs = await Meeting.find({
     users: {
       $in: [userId],
     },
   }).populate("users");
-  console.log(filteredMatchs);
-  console.log(filteredMatchs[0].users);
+
   filteredMatchs.forEach((meetingEl) => {
     meetingEl.users.map((userEl) => {
-      //console.log(
-      //  "\n\n\n compare",
-      //  userEl.id,
-      //  res.locals.currentUser._id,
-      //  userEl.id === res.locals.currentUser._id
-      //);
       userEl.isNotMe = userEl.id !== res.locals.currentUser._id;
       return userEl;
     });

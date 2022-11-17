@@ -1,32 +1,39 @@
 <ul>
-  {{#each allMatchs}}
-    <div class="matchCard">
-      <div>
-        {{#each this.users}}
-          {{#if this.isNotMe}}
-            <div>
-              <picture>
-                <img src="{{this.image.url}}" alt="no picture" />
-              </picture>
-              <p>
-                Username:
-                {{this.username}}
-                First name:
-                {{this.firstName}}
-                Last name:{{this.lastName}}
-              </p>
+  <div class="container-matchCard">
+    {{#each allMatchs}}
+
+      <div class="matchCard">
+        <div>
+          {{#each this.users}}
+            {{#if this.isNotMe}}
               <div>
-                <p>
-                  Location Name
+                <picture>
+                  <img src="{{this.image.url}}" alt="no picture" />
+                </picture>
+                <p class="matchmeal">
+                  Congrats ! You have a match meal with :
                 </p>
-                <p>
-                  Location Address
-                </p>
+                <div class="container-text-allmatch">
+                  <p>
+                    {{this.username}}
+                  </p>
+                  <p>{{this.firstName}} <span>|</span> {{this.lastName}}</p>
+
+                </div>
+                <div>
+                  <p>
+                    Let's meet and eat at Caffé Shop
+                  </p>
+                  <p>
+                    215bis Bd Voltaire, 75011 Paris
+                  </p>
+                </div>
               </div>
-            </div>
-          {{/if}}
-        {{/each}}
+            {{/if}}
+          {{/each}}
+        </div>
       </div>
-    </div>
-  {{/each}}
+
+    {{/each}}
+  </div>
 </ul>
