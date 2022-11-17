@@ -1,18 +1,32 @@
 <ul>
-  {{#each filteredMatchs}}
+  {{#each allMatchs}}
     <div class="matchCard">
-      <picture>
-        <img src="" alt="" />
-      </picture>
-      <ul>
+      <div>
         {{#each this.users}}
-          <li>
-            <p>
-              {{this.username}}
-            </p>
-          </li>
+          {{#if this.isNotMe}}
+            <div>
+              <picture>
+                <img src="{{this.image.url}}" alt="no picture" />
+              </picture>
+              <p>
+                Username:
+                {{this.username}}
+                First name:
+                {{this.firstName}}
+                Last name:{{this.lastName}}
+              </p>
+              <div>
+                <p>
+                  Location Name
+                </p>
+                <p>
+                  Location Address
+                </p>
+              </div>
+            </div>
+          {{/if}}
         {{/each}}
-      </ul>
+      </div>
     </div>
   {{/each}}
 </ul>
