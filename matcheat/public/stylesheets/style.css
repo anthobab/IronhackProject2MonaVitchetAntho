@@ -626,7 +626,7 @@ h3 {
 /* start swipe css here*/
 .match-zone {
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 4rem);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -685,7 +685,7 @@ h3 {
   display: inline-block;
   width: 90vw;
   max-width: 400px;
-  height: 70vh;
+  height: calc(70vh - 4rem);
   /* height: 35em; our css add */
   /* width: 35em; our css add */
   /* gap: 0.5em; our css add */
