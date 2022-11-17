@@ -1,10 +1,18 @@
 <ul>
-  <div class="matchCard">
-    <picture>
-      <img src="" alt="" />
-    </picture>
-    <li>
-
-    </li>
-  </div>
+  {{#each filteredMatchs}}
+    <div class="matchCard">
+      <picture>
+        <img src="" alt="" />
+      </picture>
+      <ul>
+        {{#each this.users}}
+          <li>
+            <p>
+              {{this.username}}
+            </p>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/each}}
 </ul>
