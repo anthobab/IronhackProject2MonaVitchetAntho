@@ -10,7 +10,6 @@ router.get("/findAllUsers", async (req, res, next) => {
   //const userDate = req.session.currentUser;
   //const filteredDate = await Match.find({ availableDates: userDate });
 
-
   const filter = {
     availableDates: {
       $elemMatch: {
@@ -18,6 +17,7 @@ router.get("/findAllUsers", async (req, res, next) => {
         $lte: new Date(" 17 Nov 2022 00:00:00 GMT"),
       },
     },
+    matchee: null,
   };
 
   //const limit = 5;
@@ -29,12 +29,18 @@ router.get("/findAllUsers", async (req, res, next) => {
   //  age: 1,
   //};
 
-  const users = await Match.find(filter)
-    .limit(5)
-    .populate("matcher matchee", "-hash -address -phone -availableDates -salt");
+  const users = (
+    await Match.find(filter)
+      .limit(5)
+      .populate(
+        "matcher matchee",
+        "-hash -address -phone -availableDates -salt"
+      )
+  ).map((match) => match.matcher);
   //   console.log("begin \n \n", users, "end \n \n end");
   //   const userFound = await User.findById(users[0]);
   //res.json({ users });
+  console.log(users);
   res.json(users);
 });
 
