@@ -136,7 +136,7 @@ async function loveNopeAction(love, card) {
     //action if loved
 
     const matchStatus = await axios.post(
-      "http://localhost:3000/matchAxios/createMatch",
+      process.env.SERVER_URL + "/matchAxios/createMatch",
       {
         matchee: `${card.getAttribute("data-id")}`,
         date: `${Date(card.querySelector(".dates span").textContent)}`,
@@ -165,7 +165,7 @@ async function listAvailableUsers(event) {
     event.preventDefault();
 
     const { data } = await axios.get(
-      "http://localhost:3000/matchAxios/findAllUsers"
+      process.env.SERVER_URL + "/matchAxios/findAllUsers"
     );
     console.log("\n \n axios get data \n \n", data);
     console.log(data);
@@ -232,7 +232,7 @@ matchBtn.addEventListener("click", loveListener);
 //getImageBtn.addEventListener("click", async () => {
 //  const { data } = await axios({
 //    method: "get",
-//    baseURL: "http://localhost:3000/image",
+//    baseURL: process.env.SERVER_URL + "/image",
 //  });
 //
 //  console.log(data);
@@ -246,7 +246,7 @@ matchBtn.addEventListener("click", loveListener);
 //sayHiBtn.addEventListener("click", async () => {
 //  const { data } = await axios({
 //    method: "post",
-//    baseURL: "http://localhost:3000/message",
+//    baseURL: process.env.SERVER_URL + "/message",
 //    data: { msg: "hello" },
 //  });
 //
@@ -254,7 +254,7 @@ matchBtn.addEventListener("click", loveListener);
 //});
 //
 ////   const newlyCreatedPhone = await axios.(
-////     "http://localhost:3000/phone",
+////     process.env.SERVER_URL + "/phone",
 ////     phone
 ////   );
 //
@@ -295,7 +295,7 @@ matchBtn.addEventListener("click", loveListener);
 // }
 
 // async function fetchPhones() {
-//   const { data } = await axios.get("http://localhost:3000/phone");
+//   const { data } = await axios.get(process.env.SERVER_URL + "/phone");
 //   listPhones.innerHTML = "";
 //   data.forEach((phone) => {
 //     const li = document.createElement("li");
