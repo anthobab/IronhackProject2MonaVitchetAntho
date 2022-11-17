@@ -7,9 +7,10 @@
           {{#each this.users}}
             {{#if this.isNotMe}}
               <div>
-                <picture>
-                  <img src="{{this.image.url}}" alt="no picture" />
-                </picture>
+                <div class="container-img-allmatch">
+                  <picture>
+                    <img src="{{this.image.url}}" alt="no picture" />
+                  </picture></div>
                 <p class="matchmeal">
                   Congrats ! You have a match meal with :
                 </p>
