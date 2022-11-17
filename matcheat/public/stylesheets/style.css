@@ -170,7 +170,9 @@ nav {
 }
 
 #sign-btn {
-  padding: 1.2em 12em;
+  padding: 1.2em 1.2em;
+  max-width: 80vw;
+  min-width: 80vw;
   margin: 1.2em;
   background-color: var(--yellow-color);
   cursor: pointer;
@@ -180,7 +182,9 @@ nav {
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.43);
 }
 #log-btn {
-  padding: 1.2em 12em;
+  padding: 1.2em 1.2em;
+  max-width: 80vw;
+  min-width: 80vw;
   margin: 1.2em;
   background-color: #f4f3ee;
   cursor: pointer;
@@ -993,4 +997,20 @@ h3 {
   background-size: 100% 0.3em;
   background-position: 0 80%;
   text-align: center;
+}
+
+/****************************************** Popup ****************************************************************/
+
+.popup {
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(30, 30, 30, 0.8);
+  /* opacity: 0.5; */
+}
+
+.hidden {
+  display: none;
 }
