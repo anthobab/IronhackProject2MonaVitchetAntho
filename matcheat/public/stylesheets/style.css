@@ -633,7 +633,6 @@ h3 {
   position: relative;
   opacity: 0;
   transition: opacity 0.1s ease-in-out;
-  /* background-image: url("../images/dc402d794372b62f1c79dc485872639e.png"); */
 }
 
 .loaded.match-zone {
@@ -686,9 +685,6 @@ h3 {
   width: 90vw;
   max-width: 400px;
   height: calc(70vh - 4rem);
-  /* height: 35em; our css add */
-  /* width: 35em; our css add */
-  /* gap: 0.5em; our css add */
   background-color: var(--white-color); /*our css add*/
   padding-bottom: 40px;
   border-radius: 8px;
@@ -750,9 +746,6 @@ h3 {
 }
 
 .buttonMatchPage {
-  /*display: flex; */ /*our css add*/
-  /* align-items: center; */ /*our css add*/
-  /* justify-content: space-evenly;*/ /*our css add*/
   flex: 0 0 100px;
   text-align: center;
   padding-top: 20px;
