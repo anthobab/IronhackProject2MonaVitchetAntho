@@ -3,16 +3,8 @@
 const nextBtn = document.getElementById("nextBtn");
 const matchBtn = document.getElementById("matchBtn");
 const matchCardContainer = document.getElementById("matchCardContainer");
+const matchCardzone = document.getElementById("matchCard");
 const matchCardTemplate = document.getElementById("matchCardTemplate");
-/* this is inside the template
-
-
-const matchPseudo = document.getElementById("matchPseudo");
-const matchFirstName = document.getElementById("matchFirstName");
-const matchLastName = document.getElementById("matchLastName");
-const matchAge = document.getElementById("matchAge");
-const matchProfil = document.getElementById("matchProfil");
-const User = require("../../models/User.model");
 
 /*Init : list the available users
 for available dates
@@ -25,7 +17,7 @@ function initCards(allCards) {
   var newCards = matchCardContainer.querySelectorAll(
     ".match-card:not(.removed)"
   );
-  console.log("number of new cards", newCards.length);
+  // console.log("number of new cards", newCards.length);
   newCards.forEach(function (card, index) {
     card.style.zIndex = allCards.length - index;
     card.style.transform =
@@ -33,7 +25,7 @@ function initCards(allCards) {
     card.style.opacity = (10 - index) / 10;
   });
 
-  matchCardContainer.classList.add("loaded");
+  matchCardzone.classList.add("loaded");
 }
 
 function addHammer(allCards) {
@@ -48,8 +40,8 @@ function addHammer(allCards) {
       if (event.deltaX === 0) return;
       if (event.center.x === 0 && event.center.y === 0) return;
 
-      matchCardContainer.classList.toggle("tinder_love", event.deltaX > 0);
-      matchCardContainer.classList.toggle("tinder_nope", event.deltaX < 0);
+      matchCardzone.classList.toggle("swipe_love", event.deltaX > 0);
+      matchCardzone.classList.toggle("swipe_nope", event.deltaX < 0);
 
       var xMulti = event.deltaX * 0.03;
       var yMulti = event.deltaY / 80;
@@ -67,8 +59,8 @@ function addHammer(allCards) {
 
     hammertime.on("panend", function (event) {
       el.classList.remove("moving");
-      matchCardContainer.classList.remove("tinder_love");
-      matchCardContainer.classList.remove("tinder_nope");
+      matchCardzone.classList.remove("swipe_love");
+      matchCardzone.classList.remove("swipe_nope");
 
       var moveOutWidth = document.body.clientWidth;
       var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
@@ -89,6 +81,8 @@ function addHammer(allCards) {
         var yMulti = event.deltaY / 80;
         var rotate = xMulti * yMulti;
 
+        loveNopeAction(event.deltaX > 0, event.target);
+
         event.target.style.transform =
           "translate(" +
           toX +
@@ -97,6 +91,7 @@ function addHammer(allCards) {
           "px) rotate(" +
           rotate +
           "deg)";
+
         initCards(allCards);
       }
     });
@@ -106,7 +101,7 @@ function addHammer(allCards) {
 /** What happen if love : */
 function createButtonListener(love, allCards) {
   return function (event) {
-    var cards = document.querySelectorAll(".tinder--card:not(.removed)");
+    var cards = document.querySelectorAll(".match-card:not(.removed)");
     var moveOutWidth = document.body.clientWidth * 1.5;
 
     if (!cards.length) return false;
@@ -123,14 +118,32 @@ function createButtonListener(love, allCards) {
         "translate(-" + moveOutWidth + "px, -100px) rotate(30deg)";
     }
 
+    loveNopeAction(love, card);
+
     initCards(allCards);
 
     event.preventDefault();
   };
 }
 
-var nopeListener = createButtonListener(false);
-var loveListener = createButtonListener(true);
+function loveNopeAction(love, event) {
+  if (love) {
+    //action if loved
+    //doMAtch
+    console.log("loved", event.target);
+  } else {
+    console.log("noped", event.target);
+  }
+}
+
+var nopeListener = createButtonListener(
+  false,
+  matchCardContainer.querySelectorAll(".match-card")
+);
+var loveListener = createButtonListener(
+  true,
+  matchCardContainer.querySelectorAll(".match-card")
+);
 
 async function listAvailableUsers(event) {
   // preventDefault() allow us to not send the information directly to the server
