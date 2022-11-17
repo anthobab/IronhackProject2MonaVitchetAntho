@@ -57,7 +57,7 @@ function addHammer(allCards) {
         "deg)";
     });
 
-    hammertime.on("panend", function (event) {
+    hammertime.on("panend", async function (event) {
       el.classList.remove("moving");
       matchCardzone.classList.remove("swipe_love");
       matchCardzone.classList.remove("swipe_nope");
@@ -81,7 +81,7 @@ function addHammer(allCards) {
         var yMulti = event.deltaY / 80;
         var rotate = xMulti * yMulti;
 
-        loveNopeAction(event.deltaX > 0, event.target);
+        await loveNopeAction(event.deltaX > 0, event.target);
 
         event.target.style.transform =
           "translate(" +
@@ -100,7 +100,7 @@ function addHammer(allCards) {
 
 /** What happen if love : */
 function createButtonListener(love, allCards) {
-  return function (event) {
+  return async function (event) {
     var cards = document.querySelectorAll(".match-card:not(.removed)");
     var moveOutWidth = document.body.clientWidth * 1.5;
 
@@ -118,7 +118,7 @@ function createButtonListener(love, allCards) {
         "translate(-" + moveOutWidth + "px, -100px) rotate(30deg)";
     }
 
-    loveNopeAction(love, card);
+    await loveNopeAction(love, card);
 
     initCards(allCards);
 
@@ -126,11 +126,24 @@ function createButtonListener(love, allCards) {
   };
 }
 
-function loveNopeAction(love, card) {
+async function loveNopeAction(love, card) {
+  console.log(
+    "Date : is ",
+    Date(card.querySelector(".dates span").textContent),
+    card.getAttribute("data-id")
+  );
   if (love) {
     //action if loved
-    //doMAtch
-    console.log("loved", card);
+
+    const matchStatus = await axios.post(
+      "http://localhost:3000/matchAxios/createMatch",
+      {
+        matchee: `${card.getAttribute("data-id")}`,
+        date: `${Date(card.querySelector(".dates span").textContent)}`,
+      }
+    );
+
+    console.log("loved", card, matchStatus);
   } else {
     console.log("noped", card);
   }
