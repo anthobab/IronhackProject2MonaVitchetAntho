@@ -2,22 +2,21 @@
 
 const nextBtn = document.getElementById("nextBtn");
 const matchBtn = document.getElementById("matchBtn");
-
 const matchCardContainer = document.getElementById("matchCardContainer");
 const matchCardTemplate = document.getElementById("matchCardTemplate");
 /* this is inside the template
-const matchPic = document.getElementById("matchPic");
+
+
 const matchPseudo = document.getElementById("matchPseudo");
 const matchFirstName = document.getElementById("matchFirstName");
 const matchLastName = document.getElementById("matchLastName");
 const matchAge = document.getElementById("matchAge");
-const matchDates = document.getElementById("matchDates");
-*/
+const matchProfil = document.getElementById("matchProfil");
+const User = require("../../models/User.model");
 
 /*Init : list the available users
 for available dates
 which doesn't have match document with my user name*/
-
 matchCardContainer.innerHTML = "";
 
 /*                      Functions                      */
@@ -135,18 +134,17 @@ var loveListener = createButtonListener(true);
 
 async function listAvailableUsers(event) {
   // preventDefault() allow us to not send the information directly to the server
-  // Instead we will send an AJAX request that will do the job for us :)
 
   if (event !== undefined) {
     event.preventDefault();
-  }
 
-  const { data } = await axios.get(
-    "http://localhost:3000/matchAxios/findAllUsers"
-  );
-  console.log("\n \n axios get data \n \n", data);
-  console.log(data);
-  return data;
+    const { data } = await axios.get(
+      "http://localhost:3000/matchAxios/findAllUsers"
+    );
+    console.log("\n \n axios get data \n \n", data);
+    console.log(data);
+    return data;
+  }
 }
 
 async function AddCards(event) {
