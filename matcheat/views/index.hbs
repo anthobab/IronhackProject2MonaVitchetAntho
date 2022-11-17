@@ -4,27 +4,36 @@
   <h2 class="logged-msg">Welcome
     <span class="username"> @{{currentUser.username}}</span>!
   </h2>
-  <div class="index-card">
-    <ul class="resume-card">
-      <li>
-        <picture id="matchPic">
-          <img src="{{currentUser.image.url}}" alt="no picture" />
-        </picture>
-      </li>
-      <li class="li">
 
-        {{currentUser.firstName}}
-      </li>
-      <li class="li">
+  <div class="container-resume">
+    <div class="match-card">
 
-        {{currentUser.lastName}}
-      </li>
-      <li class="li">
+      <picture class="pic">
 
-        {{currentUser.age}}
-      </li>
-    </ul>
+        <a href="/profile">
+          <img
+            class="img-resume"
+            src="{{currentUser.image.url}}"
+            alt="no picture"
+          /></a>
 
+        <ul>
+
+          <li class="name">
+
+            <span class="first-name-resume"> {{currentUser.firstName}} </span>
+            <span class="last-name-resume"> {{currentUser.lastName}}</span>
+          </li>
+          <span>|</span>
+          <li class="age">
+
+            <span class="card-data-resume"> {{currentUser.age}} years</span>
+          </li>
+
+        </ul>
+      </picture>
+
+    </div>
   </div>
 {{else}}
   <div class="container-home">
