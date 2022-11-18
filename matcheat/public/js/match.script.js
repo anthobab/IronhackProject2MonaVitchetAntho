@@ -6,6 +6,8 @@ const matchCardContainer = document.getElementById("matchCardContainer");
 const matchCardzone = document.getElementById("matchCard");
 const matchCardTemplate = document.getElementById("matchCardTemplate");
 const base_url = window.location.origin;
+const popup = document.getElementById("popupMeet");
+
 /*Init : list the available users
 for available dates
 which doesn't have match document with my user name*/
@@ -138,7 +140,10 @@ async function loveNopeAction(love, card) {
       matchee: `${card.getAttribute("data-id")}`,
       date: `${Date(card.querySelector(".dates span").textContent)}`,
     });
-
+    console.log(matchStatus.data.status);
+    if (matchStatus.data.status === "Meeting") {
+      popup.classList.remove("hidden");
+    }
     console.log("loved", card, matchStatus);
   } else {
     console.log("noped", card);
