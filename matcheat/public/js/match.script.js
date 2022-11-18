@@ -6,6 +6,7 @@ const matchCardContainer = document.getElementById("matchCardContainer");
 const matchCardzone = document.getElementById("matchCard");
 const matchCardTemplate = document.getElementById("matchCardTemplate");
 const base_url = window.location.origin;
+// const closebutton = document.getElementById("close");
 const popup = document.getElementById("popupMeet");
 
 /*Init : list the available users
@@ -225,6 +226,7 @@ window.addEventListener("load", AddCardsAndinit);
 
 nextBtn.addEventListener("click", nopeListener);
 matchBtn.addEventListener("click", loveListener);
+// closebutton.addEventListener("click", popup.classList.add("hidden"));
 
 /*************** Swipe function  ****************************************/
 
