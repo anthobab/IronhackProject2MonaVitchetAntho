@@ -6,9 +6,13 @@ const uploader = require("./../config/cloudinary");
 // SEND INFORMATION USER LOGIN //
 
 router.get("/profile", exposeUserToView, async (req, res) => {
-  userSession = req.session.currentUser;
-  const user = await User.findById(userSession._id);
-  res.render("profile", { user: [user] });
+  try {
+    userSession = req.session.currentUser;
+    const user = await User.findById(userSession._id);
+    res.render("profile", { user: [user] });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 });
 
 // CATCH NEWS INFORMATIONS AND UPDATE USER //
