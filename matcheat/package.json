@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "seed": "node seedfile/seedUsers", 
+    "seed": "node seedfile/seedUsers",
     "dev": "nodemon -e hbs,js server.js"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "multer-storage-cloudinary": "^4.0.0",
+    "party-js": "^2.2.0",
     "serve-favicon": "^2.5.0",
     "uid2": "^1.0.0"
   },
