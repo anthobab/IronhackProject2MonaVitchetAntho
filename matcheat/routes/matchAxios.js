@@ -135,6 +135,7 @@ router.post("/createMatch", async (req, res, next) => {
         users: [matchee, userId],
         date: new Date(date),
       });
+
       return res.json({
         status: "Meeting",
         data: newMeeting,
