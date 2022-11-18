@@ -1,13 +1,11 @@
 # IronhackProject2MonaVitchetAntho
-Projet2 CRUD
-
 # MATCHEAT 
 
 ## Why did we choose to make this App
 
 Nowaday meeting app are used everyday by millions of users. The most used one is Tinder, and it was our main inspiration for our app.
 We were very excited with the idea of making our own meeting app, adding to it our own little twist.
-Matcheat make use of a lot of CRUD, as well as a lot of Axios, which is pretty challenging, as it is new to us.
+Matcheat make use of a lot of CRUD, as well as a lot of Axios, which is pretty challenging as it is new to us.
 
 ## Key features 
 
@@ -17,6 +15,7 @@ Matcheat make use of a lot of CRUD, as well as a lot of Axios, which is pretty c
 - Meeting and discovering new people
 - Kind of interactive app, can be used on mobile
 - Personalized profil
+- Use of a remote database to store and manage our data
 
 ## What's next?
 
