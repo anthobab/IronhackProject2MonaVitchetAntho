@@ -418,6 +418,8 @@ h3 {
   justify-content: flex-start;
   align-items: center;
   border-radius: 5px;
+  text-align: justify;
+  line-height: 1.2em;
 }
 
 .about3 {
@@ -463,6 +465,8 @@ h3 {
   justify-content: flex-end;
   align-items: center;
   border-radius: 5px;
+  text-align: justify;
+  line-height: 1.2em;
 }
 
 /******************************************SIGNUP****************************************************************/
@@ -619,8 +623,6 @@ h3 {
 }
 
 /****************************MATCH CARD*************************/
-/* DESIGN TEMPO, A DECIDER */
-
 /* start swipe css here*/
 .match-zone {
   width: 100vw;
