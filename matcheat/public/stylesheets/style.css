@@ -27,6 +27,7 @@ body {
 
 a {
   text-decoration: none;
+  outline: none;
 }
 
 h1 {
@@ -100,8 +101,8 @@ nav {
 
 /************************************************ INDEX ******************************************************/
 .logo {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   border-radius: 50px;
   object-fit: cover;
 }
@@ -1019,7 +1020,8 @@ h3 {
   justify-content: space-between;
   width: 90vw;
   max-width: 400px;
-  height: calc(70vh - 4rem);
+  height: 40vh;
+  /* height: calc(70vh - 4rem); */
   background-color: var(--yellow-color);
   border-radius: 8px;
   box-shadow: 3px 2px 22px 2px rgba(0, 0, 0, 0.58);
@@ -1028,11 +1030,21 @@ h3 {
 }
 
 #image-popup {
-  max-width: 80%;
-  object-fit: cover;
+  width: 150px;
+
+  object-fit: contain;
 }
 
 .matchCard-popup .matchmeal {
   font-size: 30px;
   padding: 30px;
+}
+
+.container-close {
+  display: flex;
+  justify-content: flex-end;
+}
+#close {
+  cursor: pointer;
+  padding: 5px;
 }
